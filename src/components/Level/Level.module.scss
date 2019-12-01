@@ -14,18 +14,18 @@
   background-repeat: no-repeat;
 }
 
-
 .levels__wrapper {
   background-color: rgb(255, 255, 255);
   text-align: center;
-  padding-left: 38px;
-  padding-right: 39px;
+  padding-left: 30px;
+  padding-right: 30px;
   padding-top: 20px;
   padding-bottom: 22px;
 }
 
 .levels__title {
   color: rgb(0, 0, 0);
+  text-transform: none;
   font-size: 20px;
   line-height: 18px;
   padding-bottom: 10px;
@@ -40,5 +40,7 @@
 
 .levels__description {
   color: #444444;
+  padding: 0;
   padding-bottom: 15px;
+
 }
