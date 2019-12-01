@@ -1,0 +1,26 @@
+@import "../../../variables.scss";
+
+.options__filters {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  padding-bottom: 40px;
+}
+
+.options__filter {
+  background-color: rgba(25, 27, 30, 0.7);
+  font-family: $neucha;
+  font-size: 30px;
+  line-height: 33px;
+  color: $white;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 35px;
+  padding-right: 35px;
+  border: 1px solid #FCD97B;
+
+  &:hover {
+    background-color: $white;
+    color: $back;
+  }
+}

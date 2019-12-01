@@ -1,0 +1,16 @@
+@import "../../variables.scss";
+
+.options {
+  margin: 0;
+  padding-bottom: 90px;
+}
+
+.options__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.options__item {
+  margin-bottom: 30px;
+}

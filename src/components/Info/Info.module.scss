@@ -5,6 +5,7 @@
     padding: 0;
     width: 100%;
     position: relative;
+    padding-top: 128px;
   
     &::after {
       content: "";
@@ -21,6 +22,10 @@
       @media (max-width: 768px) {
         display: none;
       }
+    }
+
+    @media (max-width: 991px) {
+      padding-top: 60px;
     }
   }
   
