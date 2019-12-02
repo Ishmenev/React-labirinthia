@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import news from './news-data';
-import { Container, Row, Col } from 'reactstrap';
+import { Container } from 'reactstrap';
 import Title from '../UI/Title/Title';
 import styles from './News.module.scss';
 

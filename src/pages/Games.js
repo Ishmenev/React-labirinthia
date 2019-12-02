@@ -45,7 +45,7 @@ export default class Games extends Component {
       <React.Fragment>
         <Intro label='Играть'/>
         <Container>
-          <Title subclass={styles.options__title}>
+          <Title>
             <h2 className={styles.options__name}>Уровни</h2>
             <h2 className={styles.options__display}>К сожалению, этот раздел доступен только с компьютера</h2>
           </Title>
