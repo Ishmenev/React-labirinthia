@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Row, Col } from 'reactstrap';
-import Title from '../UI/Title/Title';
+import { Container } from 'reactstrap';
 
 import styles from './Footer.module.scss';
 

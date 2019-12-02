@@ -79,13 +79,12 @@
       height: 142px;
       background-image: url("./img/ninja.svg");
       background-repeat: no-repeat;
-    }
-  
-    @media (max-width: 768px) {  
-      &::before {
+
+      @media (max-width: 768px) {
         display: none;
       }
     }
+  
   }
   
   .info__image_narrative {
@@ -94,9 +93,10 @@
     width: 304px;
     height: 154px;
     background-image: url('./img/level-choice.jpg');
+    background-size: 100%;
     background-repeat: no-repeat;
   
-    @media (max-width: 768px) {
+    @media (max-width: 991px) {
       margin: 0;
       margin-right: auto;
     }

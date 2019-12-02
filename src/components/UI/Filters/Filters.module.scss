@@ -23,4 +23,21 @@
     background-color: $white;
     color: $back;
   }
+
+  &:active {
+    background-color: $white;
+    color: $back;
+    opacity: 0.7;
+  }
+
+  @media (max-width: 991px) {
+    padding-top: 8px;
+    padding-bottom: 7px;
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+
+  @media (max-width: $tablet-width) {
+    display: none;
+  }
 }

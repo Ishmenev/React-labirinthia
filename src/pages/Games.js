@@ -35,7 +35,6 @@ export default class Games extends Component {
     this.setState({filter})
   }
 
-
   render() {
 
     const {levels, filter} = this.state;
@@ -48,6 +47,7 @@ export default class Games extends Component {
         <Container>
           <Title subclass={styles.options__title}>
             <h2 className={styles.options__name}>Уровни</h2>
+            <h2 className={styles.options__display}>К сожалению, этот раздел доступен только с компьютера</h2>
           </Title>
           <Filters onFilter={this.changeFilter}/>
           <Options renderLevels={visibleLevels}/>

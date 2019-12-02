@@ -18,7 +18,7 @@ export default class Level extends Component {
           <h3 className={styles.levels__title}>Вступление</h3>
           <span className={styles.levels__number}>Уровень: {this.props.number}</span>
           <p className={styles.levels__description}>{this.props.description}</p>
-          <Button domType={'button'}>Кнопка</Button>
+          <Button domType={'link'}>Начать</Button>
         </div>
       </li>
     )

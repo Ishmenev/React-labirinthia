@@ -14,7 +14,7 @@ export default class Levels extends Component {
   render() {
 
     return (
-      <div className={`${styles.levels} ${styles.levels_display}`}>
+      <div className={styles.levels}>
         <Container>
           <Title subClass={styles.info__title}>
             <h2 className={styles.levels__name}>Поехали!</h2>
@@ -31,7 +31,7 @@ export default class Levels extends Component {
                   {this.props.children}
                 </Level>
               </Col>
-              <Col md={6} lg={4}>
+              <Col md={6} lg={4} className={styles.levels__display}>
                 <Level>
                   {this.props.children}
                 </Level>

@@ -6,7 +6,7 @@ import News from '../components/News/News';
 import Feedback from '../components/Feedback/Feedback';
 import styles from './MainPage.module.scss';
 
-import { Container, Row, Col } from 'reactstrap';
+import { Row, Col } from 'reactstrap';
 import Button from '../components/UI/Button/Button';
 
 export default class MainPage extends Component {

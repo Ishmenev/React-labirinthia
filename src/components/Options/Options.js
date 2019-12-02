@@ -11,7 +11,7 @@ const Options = ({renderLevels}) => {
         <ul className={styles.options__list}>
           <Row>
             {renderLevels.map((item) => (
-              <Col lg={4}>
+              <Col md={6} lg={5} xl={4}>
                 <li className={styles.options__item}>
                   <Level description={item.description}
                     number={item.id}>
@@ -22,7 +22,9 @@ const Options = ({renderLevels}) => {
                 ))}                
           </Row>
         </ul>
-        <Button domType={'button'}>Еще уровни</Button>
+        <div className={styles.options__button}>
+          <Button domType={'button'}>Еще уровни</Button>
+        </div>
       </div>
     )
 }
