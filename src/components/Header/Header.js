@@ -33,7 +33,7 @@ const Header = (props) => {
                   <Link className={styles.navbar__option} to='./creativity'>Создать уровень</Link>
                 </li>
                 <li>
-                  <Link className={styles.navbar__option} to='./start'>Играть</Link>
+                  <Link className={styles.navbar__option} to='./account'>Кабинет</Link>
                 </li>
               </Nav>
               <div className={styles.navbar__login}>

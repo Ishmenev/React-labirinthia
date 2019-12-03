@@ -5,16 +5,14 @@ import Levels from '../components/Levels/Levels';
 import News from '../components/News/News';
 import Feedback from '../components/Feedback/Feedback';
 import styles from './MainPage.module.scss';
-
+import { Link } from 'react-router-dom';
 import { Row, Col } from 'reactstrap';
 import Button from '../components/UI/Button/Button';
 
 export default class MainPage extends Component {
   constructor(props){
     super(props);
-    this.state = {
-          
-    }
+
   }
 
   render() {
@@ -27,13 +25,13 @@ export default class MainPage extends Component {
               <Col xs={6}>
                 <div className={styles.intro__choice}>
                   <p className={styles.intro__text}>Проходи уровни, получай призы и прочий lorem</p>
-                  <Button domType={'button'}>Кнопка</Button>
+                  <Link className={`${styles.intro__link} ${styles.intro__link_play}`} to='./games'>Играть</Link>
                 </div>
               </Col>
               <Col xs={6}>
                 <div className={styles.intro__choice}>
                   <p className={styles.intro__text}>Создай свой собственный уровень и нагни их всех!</p>
-                  <Button domType={'button'}>Кнопка</Button>
+                  <Link className={`${styles.intro__link} ${styles.intro__link_create}`} to='./creativity'>Создать</Link>
                 </div>
               </Col>
             </Row>

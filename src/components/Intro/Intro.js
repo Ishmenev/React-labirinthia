@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import Title from '../UI/Title/Title';
-import Button from '../UI/Button/Button';
 import styles from './Intro.module.scss';
 
 export default class Intro extends Component {

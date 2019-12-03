@@ -13,7 +13,7 @@ export default class Button extends Component {
         let content = null;
 
         if (domType === 'link') {
-            content = <Link className={`${styles.button} ${styles.button_link}`} to={href}>{this.props.children}</Link>
+            content = <Link className={styles.button} to={href}>{this.props.children}</Link>
         }
 
         else if (domType === 'button') {
@@ -21,7 +21,7 @@ export default class Button extends Component {
         }
 
         else if (domType === 'simple') {
-            content = <div className={styles.button}>{this.props.children}</div>
+            content = <div className={`${styles.button} ${styles.button_simple}`}>{this.props.children}</div>
         }
 
         return (

@@ -13,16 +13,18 @@
     border: none;
   
     &:hover {
+      text-decoration: none;
       color: rgba(52, 53, 51, 0.8);
     }
 }
 
-.button_link {
+.button_simple {
   background-color: $gold;
   padding-left: 55px;
   padding-right: 55px;
 
   &:hover {
+    cursor: pointer;
     text-decoration: none;
     color: rgb(243, 240, 240);
   }

@@ -5,7 +5,7 @@ import news from '../components/News/news-data';
 import Filters from '../components/UI/Filters/Filters';
 import Title from '../components/UI/Title/Title';
 import styles from './Games.module.scss';
-import { Container, Row, Col } from 'reactstrap';
+import { Container } from 'reactstrap';
 
 export default class Games extends Component {
   constructor(props){
