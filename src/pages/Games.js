@@ -1,58 +1,18 @@
-import React, {Component} from 'react';
+import React from 'react';
 import Intro from '../components/Intro/Intro';
-import Options from '../components/Options/Options';
-import news from '../components/News/news-data';
 import Filters from '../components/UI/Filters/Filters';
-import Title from '../components/UI/Title/Title';
-import styles from './Games.module.scss';
 import { Container } from 'reactstrap';
 
-export default class Games extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      filter: 'all',
-      levels: news.levels
-    }
-  }
+function Games() {
 
-  filterLogic(levels, filter) {
-    levels = this.state.levels;
-
-    switch(filter) {
-      case 'all': 
-        return levels;
-      case 'narrative':
-        return levels.filter(item => item.type);
-      case 'creative':
-        return levels.filter(item => !item.type);
-      default:
-        return levels
-    }
-  }
-
-  changeFilter = (filter) => {
-    this.setState({filter})
-  }
-
-  render() {
-
-    const {levels, filter} = this.state;
-
-    const visibleLevels = this.filterLogic(levels, filter)
-      
-    return (
-      <React.Fragment>
-        <Intro label='Играть'/>
-        <Container>
-          <Title>
-            <h2 className={styles.options__name}>Уровни</h2>
-            <h2 className={styles.options__display}>К сожалению, этот раздел доступен только с компьютера</h2>
-          </Title>
-          <Filters onFilter={this.changeFilter}/>
-          <Options renderLevels={visibleLevels}/>
-        </Container>
-      </React.Fragment>
-    )
-  }
+  return (
+    <React.Fragment>
+      <Intro introType={'local'} label='Играть'/>
+      <Container>
+        <Filters/>
+      </Container>
+    </React.Fragment>
+  )
 }
+
+export default Games;

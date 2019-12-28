@@ -1,13 +1,44 @@
 @import "../../../variables.scss";
 
-.options__filters {
+.filters {
   list-style: none;
   padding: 0;
   margin: 0;
-  padding-bottom: 60px;
 }
 
-.options__filter {
+.filters__wrapper {
+  padding-bottom: 60px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.filters__name {
+  text-align: left;
+  color: $yellow;
+  text-transform: none;
+  font-size: 50px;
+  line-height: 55px;
+  padding-top: 50px;
+  padding-bottom: 30px;
+
+  @media (max-width: $tablet-width) {
+    display: none;
+  }
+}
+
+.filters__display {
+  text-transform: none;
+  color: $yellow;
+  font-size: 40px;
+  line-height: 45px;
+  display: none;
+
+  @media (max-width: $tablet-width) {
+    display: block;
+  }
+}
+
+.filters__link {
   background-color: rgba(25, 27, 30, 0.7);
   font-family: $neucha;
   font-size: 30px;
@@ -20,8 +51,8 @@
   border: 1px solid #FCD97B;
 
   &:hover {
-    background-color: $white;
-    color: $back;
+    color: $white;
+    text-decoration: none;
   }
 
   &:active {
@@ -39,5 +70,14 @@
 
   @media (max-width: $tablet-width) {
     display: none;
+  }
+}
+
+.filters__link_active {
+  background-color: $white;
+  color: $back;
+
+  &:hover {
+    color: $black;
   }
 }

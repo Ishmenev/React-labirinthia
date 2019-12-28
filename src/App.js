@@ -9,23 +9,25 @@ import Account from './pages/Account';
 import OwnLevel from './pages/OwnLevel';
 import createHistory from 'history/createBrowserHistory';
 import './bootstrap.min.css';
-import styles from './App.module.scss';
+import './style.css';
 const history = createHistory();
 
 function App() {
   return (
-    <div className={styles.body}>
+    <div className='wrapper'>
+      <div className='sections'>
         <Router history={history}>
           <Header/>
             <Switch>
               <Route exact path='/' component={Main}/>
-              <Route path='/games' component={Games}/>
+              <Route path='/games' component={Games} />
               <Route path='/account' component={Account}/>
               <Route path='/creativity' component={OwnLevel}/>
               <Route path='/start' component={Start}/>
             </Switch>
-          <Footer />
         </Router>
+      </div>
+      <Footer />
     </div>
   );
 }

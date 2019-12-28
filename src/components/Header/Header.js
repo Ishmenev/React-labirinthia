@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { 
   Navbar, 
   Container, 
@@ -9,7 +9,7 @@ import {
 } from 'reactstrap';
 import styles from './Header.module.scss';
 
-const Header = (props) => {
+const Header = () => {
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -27,13 +27,13 @@ const Header = (props) => {
             <Collapse isOpen={isOpen} navbar>
               <Nav className={styles.navbar_nav} navbar>
                 <li>
-                  <Link className={`${styles.navbar__option} ${styles.navbar__option_active}`} to='./games'>Играть</Link>
+                  <NavLink className={styles.navbar__option} activeClassName={styles.navbar__option_active} to='/games/'>Играть</NavLink>
                 </li>
                 <li>
-                  <Link className={styles.navbar__option} to='./creativity'>Создать уровень</Link>
+                  <NavLink className={styles.navbar__option} activeClassName={styles.navbar__option_active} to='/creativity'>Создать уровень</NavLink>
                 </li>
                 <li>
-                  <Link className={styles.navbar__option} to='./account'>Кабинет</Link>
+                  <NavLink className={styles.navbar__option} activeClassName={styles.navbar__option_active} to='/account'>Кабинет</NavLink>
                 </li>
               </Nav>
               <div className={styles.navbar__login}>

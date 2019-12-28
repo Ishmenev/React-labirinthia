@@ -1,48 +1,22 @@
-import React, {Component} from 'react';
+import React from 'react';
 import Intro from '../components/Intro/Intro';
 import Info from '../components/Info/Info';
 import Levels from '../components/Levels/Levels';
 import News from '../components/News/News';
 import Feedback from '../components/Feedback/Feedback';
-import styles from './MainPage.module.scss';
-import { Link } from 'react-router-dom';
-import { Row, Col } from 'reactstrap';
-import Button from '../components/UI/Button/Button';
 
-export default class MainPage extends Component {
-  constructor(props){
-    super(props);
-
-  }
-
-  render() {
+const MainPage = (props) => {
       
-    return (
-      <React.Fragment>
-        <Intro label='Лабиринтия' subName={styles.intro__name_main}>
-        <div className={styles.intro__options}>
-            <Row>
-              <Col xs={6}>
-                <div className={styles.intro__choice}>
-                  <p className={styles.intro__text}>Проходи уровни, получай призы и прочий lorem</p>
-                  <Link className={`${styles.intro__link} ${styles.intro__link_play}`} to='./games'>Играть</Link>
-                </div>
-              </Col>
-              <Col xs={6}>
-                <div className={styles.intro__choice}>
-                  <p className={styles.intro__text}>Создай свой собственный уровень и нагни их всех!</p>
-                  <Link className={`${styles.intro__link} ${styles.intro__link_create}`} to='./creativity'>Создать</Link>
-                </div>
-              </Col>
-            </Row>
-          </div>
-          <span className={styles.intro__compass}></span>
-        </Intro>
-        <Info/>
-        <Levels/>
-        <News/>
-        <Feedback/>
-      </React.Fragment>
-    )
-  }
+  return (
+    <React.Fragment>
+      <Intro introType={'main'} label='Лабиринтия' />
+      <Info/>
+      <Levels/>
+      <News {...props}/>
+      <Feedback/>
+    </React.Fragment>
+  )
+
 }
+
+export default MainPage;

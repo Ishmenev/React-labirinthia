@@ -1,27 +1,20 @@
-import React, {Component} from 'react';
+import React from 'react';
 import Intro from '../components/Intro/Intro';
 import User from '../components/User/User';
 import Characters from '../components/Characters/Characters';
 import Wins from '../components/Wins/Wins';
 
-export default class Account extends Component {
-  constructor(props){
-    super(props);
-
-  }
-
-  render() {
+const Account = () => {
       
-    return (
-      <React.Fragment>
-        <Intro label='Кабинет'/>
-          <User />
-          <Characters />
-          <Wins />
+  return (
+    <React.Fragment>
+      <Intro introType={'local'} label='Кабинет'/>
+      <User />
+      <Characters />
+      <Wins />
+    </React.Fragment>
+  )
 
-      </React.Fragment>
-
-
-    )
-  }
 }
+
+export default Account;

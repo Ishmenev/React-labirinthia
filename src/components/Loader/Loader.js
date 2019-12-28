@@ -1,17 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import styles from './Loader.module.scss';
 
-export default class Loader extends Component {
-    constructor(props){
-        super(props);
-    }
+const Loader = () => {
 
-
-    render() {
-
-        return (
-            <div className={styles.block}></div>
-        );
-    }
+  return (
+    <div className={styles.block}></div>
+  );
 }
+
+export default Loader;

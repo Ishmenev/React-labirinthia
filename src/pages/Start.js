@@ -1,18 +1,13 @@
-import React, {Component} from 'react';
+import React from 'react';
 import Intro from '../components/Intro/Intro';
 
-export default class Start extends Component {
-  constructor(props){
-    super(props);
+const Start = () => {
 
-  }
-
-  render() {
-      
-    return (
-      <React.Fragment>
-        <Intro label='Игра началась'/>
-      </React.Fragment>
-    )
-  }
+  return (
+    <React.Fragment>
+      <Intro introType={'local'} label='Игра началась'/>
+    </React.Fragment>
+  )
 }
+
+export default Start;
