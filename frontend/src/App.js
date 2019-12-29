@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import {Router, Route, Switch} from 'react-router-dom';
@@ -13,6 +14,17 @@ import './style.css';
 const history = createHistory();
 
 function App() {
+  const getAuthorData = async () => {
+    try {
+      const res = await axios.get("/api/author");
+      console.log(res);
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
+  
+  getAuthorData()
+  
   return (
     <div className='wrapper'>
       <div className='sections'>

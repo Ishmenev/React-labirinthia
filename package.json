@@ -1,44 +1,32 @@
 {
-  "name": "react-labirintiya",
-  "version": "0.1.0",
+  "name": "hex-universe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
   "private": true,
-  "dependencies": {
-    "gulp": "^3.9.1",
-    "gulp-load-plugins": "^2.0.1",
-    "gulp-rename": "^1.4.0",
-    "gulp-replace": "^1.0.0",
-    "gulp-util": "^3.0.8",
-    "lodash": "^4.17.15",
-    "node-sass": "^4.13.0",
-    "prop-types": "^15.7.2",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-router-dom": "^5.1.2",
-    "react-scripts": "3.2.0",
-    "react-slick": "^0.25.2",
-    "reactstrap": "^8.1.1",
-    "slick-carousel": "^1.8.1",
-    "yargs": "^15.0.2"
-  },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "node server",
+    "server-dev": "nodemon server",
+    "client-dev": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server-dev\" \"npm run client-dev\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/semperhomolupus/hex-universe.git"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "author": "Yegor Dyachenko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/semperhomolupus/hex-universe/issues"
+  },
+  "homepage": "https://github.com/semperhomolupus/hex-universe#readme",
+  "dependencies": {
+    "concurrently": "^4.1.0",
+    "config": "^3.1.0",
+    "express": "^4.16.4",
+    "express-validator": "^5.3.1",
+    "mongoose": "^5.5.5",
+    "nodemon": "^1.19.0"
   }
 }
