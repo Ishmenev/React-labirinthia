@@ -16,7 +16,7 @@ const history = createHistory();
 function App() {
   const getAuthorData = async () => {
     try {
-      const res = await axios.get("/api/mainPage");
+      const res = await axios.get("/api/main");
       console.log(res);
     } catch (err) {
       console.error(err.message);

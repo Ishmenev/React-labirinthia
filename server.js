@@ -3,7 +3,7 @@ const path = require("path");
 const config = require("config");
 const connectDB = require("./config/db");
 
-const main = require("./backend/routes/mainPage");
+const main = require("./backend/routes/main");
 
 
 // Создаем приложение
@@ -17,7 +17,7 @@ app.use(express.json({ extended: false }));
 const port = process.env.PORT || config.get("defaultPort");
 
 // Рутер с информацией для главной
-app.use("/api/mainPage", main);
+app.use("/api/main", main);
 
 
 // Статические ассеты в продакшене
