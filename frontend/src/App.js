@@ -14,16 +14,7 @@ import './style.css';
 const history = createHistory();
 
 function App() {
-  const getAuthorData = async () => {
-    try {
-      const res = await axios.get("/api/main");
-      console.log(res);
-    } catch (err) {
-      console.error(err.message);
-    }
-  };
-  
-  getAuthorData()
+
   
   return (
     <div className='wrapper'>
