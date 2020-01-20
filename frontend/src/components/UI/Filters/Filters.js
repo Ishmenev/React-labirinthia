@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Filters.module.scss';
 import Title from '../Title/Title';
-import {NavLink} from 'react-router-dom';
+import {NavLink, Redirect} from 'react-router-dom';
 import {Router, Route, Switch} from 'react-router-dom';
 import Options from '../../Options/Options';
 import createHistory from 'history/createBrowserHistory';
@@ -36,10 +36,9 @@ function Filters() {
               activeClassName={styles.filters__link_active}
               >
               Сюжетные</NavLink>
+            <Redirect to='/games/all'></Redirect>    
           </div>
-          <Switch>
-            <Route path='/games/:filter?' component={Options} />              
-          </Switch>
+            <Route path='/games/:filter?' component={Options} />
         </Router>
       </div>
   )

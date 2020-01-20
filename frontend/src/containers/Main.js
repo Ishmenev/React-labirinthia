@@ -3,8 +3,11 @@ import Loader from "../components/Loader/Loader";
 import MainPage from "../pages/MainPage";
 import Page404 from "../pages/Page404";
 import axios from "axios";
+import { connect } from 'react-redux';
+import { fetchDataSuccess } from '../actions';
 
-export default class Main extends Component {
+
+class Main extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -14,10 +17,15 @@ export default class Main extends Component {
     }
     
     componentDidMount() {
+
         const getMainData = async () => {
             try {
                 const res = await axios.get("/api/main");
-                console.log(res, 'res');
+                // console.log(res, 'res')
+                const data = res.data[0];
+                this.props.fetchDataSuccess(data)
+
+
                 this.setState({
                     data: res.data[0],
                     isFetching: false
@@ -37,7 +45,7 @@ export default class Main extends Component {
         
         if (!isFetching) {
             if (data) {
-                content = <MainPage data={data}/>
+                content = <MainPage/>
             } else {
                 content = <Page404/>
             }
@@ -48,3 +56,19 @@ export default class Main extends Component {
         )
     }
 }
+
+const mapStateToProps = state => {
+    return {
+        data: state.data
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        fetchDataSuccess: (data) => {
+            dispatch(fetchDataSuccess(data))
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Main)

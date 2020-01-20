@@ -3,17 +3,37 @@ import { Row, Col } from 'reactstrap';
 import styles from './Options.module.scss';
 import Level from '../Level/Level';
 import Button from '../UI/Button/Button';
-import news from '../News/news-data';
+import store from '../../store';
+import axios from "axios";
+import {fetchDataSuccess} from '../../actions';
+import {connect} from 'react-redux';
 
-
-export default class Options extends Component {
+class Options extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      levels: news.levels,
-      initStatus: false
-    }
+      initStatus: false    }
   }
+
+  componentDidMount() {
+
+    const getMainData = async () => {
+        try {
+            const res = await axios.get("/api/main");
+            // console.log(res, 'res')
+            const data = res.data[0];
+            this.props.fetchDataSuccess(data)
+
+
+        } catch (err) {
+            console.error(err.message);
+        }
+    };
+
+    getMainData();
+}
+
+
 
   btnClicked = () => {
     this.setState((state) => {
@@ -35,7 +55,8 @@ export default class Options extends Component {
   render() {
 
     let initStatus = this.state.initStatus;
-    const {levels} = this.state;
+    const getData = store.getState()
+    const levels = getData.data.levels;
     const {filter} = this.props.match.params;
 
     let visibleLevels = this.updateFilter(levels, filter);
@@ -77,4 +98,21 @@ export default class Options extends Component {
     ) 
   }
 }
+
+const mapStateToProps = state => {
+  return {
+      data: state.data
+  }
+}
+
+
+const mapDispatchToProps = dispatch => {
+  return {
+      fetchDataSuccess: (data) => {
+          dispatch(fetchDataSuccess(data))
+      }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Options)
 

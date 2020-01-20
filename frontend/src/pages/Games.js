@@ -2,6 +2,7 @@ import React from 'react';
 import Intro from '../components/Intro/Intro';
 import Filters from '../components/UI/Filters/Filters';
 import { Container } from 'reactstrap';
+import Options from '../components/Options/Options';
 
 function Games() {
 

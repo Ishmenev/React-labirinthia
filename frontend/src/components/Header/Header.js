@@ -30,14 +30,14 @@ const Header = () => {
                   <NavLink className={styles.navbar__option} activeClassName={styles.navbar__option_active} to='/games/'>Играть</NavLink>
                 </li>
                 <li>
-                  <NavLink className={styles.navbar__option} activeClassName={styles.navbar__option_active} to='/creativity'>Создать уровень</NavLink>
+                  <NavLink className={styles.navbar__option} activeClassName={styles.navbar__option_active} to='/creativity/'>Создать уровень</NavLink>
                 </li>
                 <li>
-                  <NavLink className={styles.navbar__option} activeClassName={styles.navbar__option_active} to='/account'>Кабинет</NavLink>
+                  <NavLink className={styles.navbar__option} activeClassName={styles.navbar__option_active} to='/account/'>Кабинет</NavLink>
                 </li>
               </Nav>
               <div className={styles.navbar__login}>
-                <Link to='/account' className={`${styles.navbar__private} ${styles.navbar__private_display}`}>Личный кабинет</Link>
+                <Link to='/account/' className={`${styles.navbar__private} ${styles.navbar__private_display}`}>Личный кабинет</Link>
               </div>
             </Collapse>
         </Container>

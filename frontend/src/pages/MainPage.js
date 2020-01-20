@@ -5,14 +5,14 @@ import Levels from '../components/Levels/Levels';
 import News from '../components/News/News';
 import Feedback from '../components/Feedback/Feedback';
 
-const MainPage = (props) => {
+const MainPage = () => {
       
   return (
     <React.Fragment>
       <Intro introType={'main'} label='Лабиринтия' />
       <Info/>
       <Levels/>
-      <News {...props}/>
+      <News/>
       <Feedback/>
     </React.Fragment>
   )
