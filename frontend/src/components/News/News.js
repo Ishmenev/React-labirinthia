@@ -6,7 +6,6 @@ import Title from '../UI/Title/Title';
 import "slick-carousel/slick/slick.scss";
 import "slick-carousel/slick/slick-theme.scss";
 import { connect} from 'react-redux';
-import store from '../../store';
 
 class News extends Component {
   constructor(props) {
@@ -15,9 +14,6 @@ class News extends Component {
 
 
   render() {
-
-    const getData = store.getState()
-    const properties = getData.data.properties;
 
     const settings = {
       dots: true,

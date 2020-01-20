@@ -20,9 +20,9 @@ class Options extends Component {
     const getMainData = async () => {
         try {
             const res = await axios.get("/api/main");
-            // console.log(res, 'res')
+            console.log(res, 'res')
             const data = res.data[0];
-            this.props.fetchDataSuccess(data)
+            store.dispatch(fetchDataSuccess(data))
 
 
         } catch (err) {
@@ -106,13 +106,5 @@ const mapStateToProps = state => {
 }
 
 
-const mapDispatchToProps = dispatch => {
-  return {
-      fetchDataSuccess: (data) => {
-          dispatch(fetchDataSuccess(data))
-      }
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Options)
+export default connect(mapStateToProps)(Options)
 
