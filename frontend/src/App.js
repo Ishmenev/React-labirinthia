@@ -13,29 +13,6 @@ import './bootstrap.min.css';
 import './style.css';
 const history = createHistory();
 
-const routes = [
-  {
-    path: '/',
-    exact: true,
-    tag: () => <Main/>
-  },
-  {
-    path: '/main/',
-    tag: () => <MainPage/>
-  },
-  {
-    path: '/games/',
-    tag: () => <Games/>
-  },
-  {
-    path: '/account',
-    tag: () => <Account/>
-  },
-  {
-    path: '/creativity',
-    tag: () => <OwnLevel/>
-  }
-]
 
 function App() {
 
@@ -52,14 +29,6 @@ function App() {
               <Route path='/account' component={Account}/>
               <Route path='/creativity' component={OwnLevel}/>
               <Route path='/start' component={Start}/>
-              {/* {routes.map((route, index) => (
-                <Route
-                  key={index}
-                  patch={route.path}
-                  exact={route.exact}
-                  children={<route.tag/>}
-                />
-              ))} */}
             </Switch>
         </Router>
       </div>
