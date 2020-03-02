@@ -1,23 +1,6 @@
-const initialState = {
-  data: {
-    properties: [],
-    levels: []
-  }
-}
+import { combineReducers } from 'redux';
+import main from './main';
 
-const reducer = (state = initialState, action) => {
-
-  console.log(action.type)
-
-  switch (action.type) {
-    case 'FETCH_DATA_SUCCESS':
-      return {
-        data: action.payload
-      }
-    
-    default:
-      return state
-  }
-}
-
-export default reducer
+export default combineReducers({
+  main
+})

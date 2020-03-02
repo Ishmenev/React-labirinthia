@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import styles from './Input.module.scss';
+import styles from './Email.module.scss';
 
-export default class Input extends Component {
+export default class Email extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -10,15 +10,14 @@ export default class Input extends Component {
   }
 
   passData = (e) => {
-    const value = e.target.value;
-    const name = this.props.name;
+    const {name, value} = e.target;
     const errorText = this.state.errorText
 
-    if(!value.length > 0) {
+    if(!value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)) {
       this.setState({
-        errorText: 'This field should not be empty...'
+        errorText: 'Email is not valid'
       })
-      this.props.onInvalid(name, value)
+      this.props.onInvalid(name, errorText)
     } else {
       this.setState({
         errorText: ''
@@ -34,9 +33,10 @@ export default class Input extends Component {
       <div>
         <input 
           type='text'
-          placeholder={this.props.name}
+          name='email'
+          placeholder='Email'
           onChange={(e) => this.passData(e)}
-          className={styles.feedback__input}/>
+          className={styles.feedback__email}/>
         <p>{this.state.errorText.length > 0 && <span className={styles.feedback__error}>{this.state.errorText}</span>}</p>
       </div>
     ) 

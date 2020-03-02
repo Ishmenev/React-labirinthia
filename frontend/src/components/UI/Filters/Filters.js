@@ -1,14 +1,14 @@
 import React from 'react';
 import styles from './Filters.module.scss';
 import Title from '../Title/Title';
-import {NavLink, Redirect} from 'react-router-dom';
-import {Router, Route, Switch} from 'react-router-dom';
+import {NavLink, Redirect, Switch} from 'react-router-dom';
+import {Router, Route} from 'react-router-dom';
 import Options from '../../Options/Options';
 import createHistory from 'history/createBrowserHistory';
 
 const history = createHistory();
 
-function Filters() {
+const Filters = ({levels}) => {
 
   return (
       <div className={styles.filters}>
@@ -38,7 +38,11 @@ function Filters() {
               Сюжетные</NavLink>
             <Redirect to='/games/all'></Redirect>    
           </div>
-            <Route path='/games/:filter?' component={Options} />
+          <Switch>
+            <Route path='/games/:filter?' children={({match}) => {
+              return <Options levels={levels} filter={match.params}/>
+            }}/>
+          </Switch>
         </Router>
       </div>
   )

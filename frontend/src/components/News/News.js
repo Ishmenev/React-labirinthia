@@ -5,9 +5,8 @@ import styles from './News.module.scss';
 import Title from '../UI/Title/Title';
 import "slick-carousel/slick/slick.scss";
 import "slick-carousel/slick/slick-theme.scss";
-import { connect} from 'react-redux';
 
-class News extends Component {
+export default class News extends Component {
   constructor(props) {
     super(props);
   }
@@ -42,27 +41,18 @@ class News extends Component {
         </Title>
         <Container>
           <Slider {...settings}>
-            {this.props.properties}
+            {this.props.news.map((item) => (
+              <div key={item.id} className={styles.news__item}>
+                <Title>
+                  <h3 className={styles.news__title}>{item.title}</h3>
+                </Title>
+                <p className={styles.news__text}>{item.text}</p>
+                <span className={styles.news__date}>{item.date}</span>
+              </div>
+            ))}
           </Slider>
         </Container>
       </div>
     )
   }
 }
-
-const mapStateToProps = state => {
-  return {
-    properties: state.data.properties.map((item) => (
-      <div key={item.id} className={styles.news__item}>
-        <Title>
-          <h3 className={styles.news__title}>{item.title}</h3>
-        </Title>
-        <p className={styles.news__text}>{item.text}</p>
-        <span className={styles.news__date}>{item.date}</span>
-      </div>
-      ))
-  }
-}
-
-
-export default connect(mapStateToProps)(News)

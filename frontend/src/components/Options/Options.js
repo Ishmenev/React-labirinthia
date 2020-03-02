@@ -5,35 +5,14 @@ import Level from '../Level/Level';
 import Button from '../UI/Button/Button';
 import store from '../../store';
 import axios from "axios";
-import {fetchDataSuccess} from '../../actions';
 import {connect} from 'react-redux';
 
-class Options extends Component {
+export default class Options extends Component {
   constructor(props) {
     super(props);
     this.state = {
       initStatus: false    }
   }
-
-  componentDidMount() {
-
-    const getMainData = async () => {
-        try {
-            const res = await axios.get("/api/main");
-            console.log(res, 'res')
-            const data = res.data[0];
-            store.dispatch(fetchDataSuccess(data))
-
-
-        } catch (err) {
-            console.error(err.message);
-        }
-    };
-
-    getMainData();
-}
-
-
 
   btnClicked = () => {
     this.setState((state) => {
@@ -55,9 +34,8 @@ class Options extends Component {
   render() {
 
     let initStatus = this.state.initStatus;
-    const getData = store.getState()
-    const levels = getData.data.levels;
-    const {filter} = this.props.match.params;
+    const levels = this.props.levels;
+    const {filter} = this.props.filter;
 
     let visibleLevels = this.updateFilter(levels, filter);
   
@@ -98,13 +76,3 @@ class Options extends Component {
     ) 
   }
 }
-
-const mapStateToProps = state => {
-  return {
-      data: state.data
-  }
-}
-
-
-export default connect(mapStateToProps)(Options)
-
