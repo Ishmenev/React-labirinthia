@@ -1,11 +1,11 @@
 import React, {Component} from "react";
 import Loader from "../components/Loader/Loader";
-import MainPage from "../pages/MainPage";
+import Account from "../pages/Account";
 import Page404 from "../pages/Page404";
 import { connect } from 'react-redux';
 import {getMainData} from '../actions/main';
 
-class MainContainer extends Component {
+class AccountContainer extends Component {
     constructor(props) {
         super(props);
 
@@ -16,13 +16,14 @@ class MainContainer extends Component {
     }
     
     render() {
-        const {isFetching, data} = this.props;
+        // console.log(this.props.user)
+        const {isFetching, user} = this.props;
         
         let content = null;
     
-        if (data) {
-            content = <MainPage
-                data={data}
+        if (user) {
+            content = <Account
+                user={user}
             />
         }
         
@@ -42,12 +43,11 @@ class MainContainer extends Component {
 }
 
 const mapStateToProps = state => {
-    // console.log(state)
+    // console.log(state.account.user)
     return {
         user: state.account.user,
-        data: state.main.data,
         isFetching: state.main.isFetching
     }
 }
 
-export default connect(mapStateToProps, {getMainData})(MainContainer)
+export default connect(mapStateToProps, {getMainData})(AccountContainer)

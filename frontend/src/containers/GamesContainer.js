@@ -44,8 +44,8 @@ class GamesContainer extends Component {
 const mapStateToProps = state => {
     // console.log(state)
     return {
-        data: state.main.data,
-        isFetching: state.main.isFetching
+        data: state.games.data,
+        isFetching: state.games.isFetching
     }
 }
 

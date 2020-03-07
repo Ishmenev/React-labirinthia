@@ -1,15 +1,10 @@
-const initialState = {
-  data: null,
-  isFetching: false
-};
-
-const main = (state = initialState, action) => {
-  // if(state === undefined) {
-  //   return {
-  //     data: null,
-  //     isFetching: false
-  //   }
-  // }
+const games = (state, action) => {
+  if(state === undefined) {
+    return {
+      data: null,
+      isFetching: false
+    }
+  }
 
   switch (action.type) {
     case 'REQUEST_DATA_FETCHING':
@@ -34,4 +29,5 @@ const main = (state = initialState, action) => {
   }
 };
 
-export default main
+
+export default games

@@ -40,3 +40,10 @@ function fetchingDataFail() {
     type: 'FETCHING_DATA_FAIL'
   }
 }
+
+export const fetchUserById = (userId) => {
+  return {
+    type: 'FETCH_USER_BY_ID',
+    payload: userId
+  }
+}

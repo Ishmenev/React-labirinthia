@@ -4,12 +4,12 @@ import User from '../components/User/User';
 import Characters from '../components/Characters/Characters';
 import Wins from '../components/Wins/Wins';
 
-const Account = () => {
+const Account = ({user}) => {
       
   return (
     <React.Fragment>
       <Intro introType={'local'} label='Кабинет'/>
-      <User />
+      <User user={user} />
       <Characters />
       <Wins />
     </React.Fragment>
