@@ -5,26 +5,46 @@ export default class Textarea extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      errorText: ''
+      textarea: {
+        errorMessage: 'Введите правильный textarea',
+        valid: false,
+        touched: false,
+      }
     }
   }
 
   passData = (e) => {
-    const value = e.target.value;
-    const name = this.props.name;
-    const errorText = this.state.errorText
+    const {name, value} = e.target;
 
-    if(value.length < 8) {
+    if(value.length < 10) {
       this.setState({
-        errorText: 'This field should included at least 8 characters...'
+        [name]: {
+          touched: true,
+          valid: false
+        }
       })
-      this.props.onInvalid(name, errorText)
-    } else {
+      this.props.onInvalid(name, value)
+    }
+
+    if(value === '') {
       this.setState({
-        errorText: ''
+        [name]: {
+          touched: true,
+          valid: true
+        }
+      })
+      this.props.onInvalid(name, value)
+    } 
+
+    if(value.length >= 10) {
+      this.setState({
+        [name]: {
+          touched: true,
+          valid: true
+        }
       })
       this.props.onValid(name, value)
-    }    
+    }
   }
 
 
@@ -34,12 +54,21 @@ export default class Textarea extends Component {
       <div>
         <textarea
           type='text'
+          name='textarea'
           rows='5'
-          placeholder={this.props.name}
+          value={this.props.value}
           onChange={(e) => this.passData(e)}
-          className={styles.feedback__textarea}/>
-        <p>{this.state.errorText.length > 0 && <span className={styles.feedback__error}>{this.state.errorText}</span>}</p>
+          placeholder='Введите ваше сообщение'
+          className={styles.feedback__textarea}
+        />
+        {
+          !this.state.textarea.valid && this.state.textarea.touched
+            ? <span className={styles.feedback__error}>{'Введите верное значение'}</span>
+            : null
+        }
+        
       </div>
+    
     ) 
   }
 }

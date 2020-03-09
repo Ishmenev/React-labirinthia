@@ -6,102 +6,97 @@ import Input from '../UI/Input/Input';
 import Email from '../UI/Email/Email';
 import Textarea from '../UI/Textarea/Textarea';
 
+const initialState = {
+  isFormValid: false,
+  errorsCount: 5,
+  username: '',
+  lastname: '',
+  email: '',
+  subject: '',
+  textarea: '',
+  errors: {
+    username: true,
+    lastname: true,
+    email: true,
+    subject: true,
+    textarea: true
+  }
+}
 
 export default class Feedback extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      errorCount: 0,
-      formValid: false,
-      Username: '',
-      Lastname: '',
-      Subject: '',
-      errors: {
-        username: '',
-        lastname: '',
-        email: ''
-      }
-    }
+    this.state = initialState
   }
 
   onValid = (name, value) => {
+    console.log(name, value)
+
     let errors = this.state.errors;
+
     switch(name) {
-      case 'Username': 
-        errors.username = '';
-        break
-      case 'Lastname': 
-        errors.lastname = '';
-        break
+      case 'username':
+        errors.username = false;
+      break
+      case 'lastname':
+        errors.lastname = false;
+      break
       case 'email':
-        errors.email = ''
-        break
+        errors.email = false;
+      break
+      case 'subject':
+        errors.subject = false;
+      break
+      case 'textarea':
+        errors.textarea = false;
+      break
       default:
-        break
+      break
     }
-    this.setState(() => {
-      return {
-        [name]: value,
-        errors,
-        errorCount: this.countErrors(this.state.errors),
-        formValid: this.validateForm({[name]: value})
-      }      
+
+    this.setState({
+      errors,
+      [name]: value,
+      errorsCount: this.countErrors(this.state.errors)
     })
+    this.setState({isFormValid: this.validateForm(this.state.errorsCount)})
+  }
+
+  validateForm = (errorsCount) => {
+    let valid = true;
+
+    if(errorsCount > 0) {
+      valid = false
+    } else {
+      valid = true
+    }
+    return valid
   }
 
   onInvalid = (name, value) => {
-    let errors = this.state.errors;
-
-    switch(name) {
-      case 'Username': 
-        errors.username = 'ERROR'
-        break
-      case 'Lastname': 
-        errors.lastname = 'ERROR';
-        break
-      case 'email':
-        errors.email = 'ERROR';
-        break
-      default:
-        break
-    }
-    this.setState(() => {
-      return {
-        [name]: value,
-        errors,
-        errorCount: this.countErrors(this.state.errors),
-        formValid: this.validateForm({[name]: value})
-      }
+    this.setState({
+      [name]: value
     })
-  }
 
-  sendData = (e) => {
-    e.preventDefault();
-    if(!this.state.formValid) {
-      console.log('FORM IS INVALID', this.state)
-    } else {
-      console.log('FORM IS VALID', this.state)
-    }
-  }
-
-  validateForm = (data) => {
-      let valid = null;
-
-      Object.values(data).forEach(
-        (val) => val.length > 0 && (valid = true)
-      );
-      return valid;
   }
 
   countErrors = (errors) => {
     let count = 0;
     Object.values(errors).forEach(
-      (val) => val === 'ERROR' && (count = count+1)
+      (val) => val === true && (count = count+1)
     );
     return count;
   }
 
-
+  submitHandler = (e) => {
+    e.preventDefault();
+    if(!this.state.isFormValid) {
+      console.log('ERROR FORM!')
+    } else {
+      console.log(this.state)
+      this.setState(initialState)
+    }
+  }
 
   render() {
 
@@ -112,44 +107,50 @@ export default class Feedback extends Component {
           <Title>
             <h2 className={styles.feedback__name}>Связаться</h2>
           </Title>
-          <form id='form' onSubmit={this.sendData} action='get'>
+          <form id='form' onSubmit={this.submitHandler} action='get'>
             <Row>
               <Col sm={12} md={6}>
                 <Input
+                  nameType='username'
+                  value={this.state.username}
                   onValid={this.onValid}
-                  onInvalid={this.onInvalid}
-                  value={this.state.value}
-                  name='Username'/>
-              </Col>
-              <Col sm={12} md={6}>
-                <Input 
-                  onValid={this.onValid}
-                  onInvalid={this.onInvalid}
-                  value={this.state.value}
-                  name='Lastname'/>
-              </Col>
-              <Col sm={12} md={6}>
-                <Email
-                  onValid={this.onValid}
-                  onInvalid={this.onInvalid}
-                  value={this.state.value}/>
+                  onInvalid={this.onInvalid}              
+                />
               </Col>
               <Col sm={12} md={6}>
                 <Input
+                  nameType='lastname'
+                  value={this.state.lastname}
                   onValid={this.onValid}
                   onInvalid={this.onInvalid}
-                  value={this.state.value}
-                  name='Subject'/>
+                />
+              </Col>
+              <Col sm={12} md={6}>
+                <Email
+                  value={this.state.email}
+                  onValid={this.onValid}
+                  onInvalid={this.onInvalid}
+                />
+              </Col>
+              <Col sm={12} md={6}>
+                <Input
+                  nameType='subject'
+                  value={this.state.subject}
+                  onValid={this.onValid}
+                  onInvalid={this.onInvalid}
+                />
               </Col>
               <Col lg={12}>
                 <Textarea
+                  value={this.state.textarea}
                   onValid={this.onValid}
                   onInvalid={this.onInvalid}
-                  value={this.state.value}
-                  name='Textarea'/>
+                />
               </Col>
               <Col lg={12}>
-                <button className={styles.feedback__button}>Отправить</button>
+                <button className={styles.feedback__button}>
+                  Отправить
+                </button>
               </Col>
             </Row>
           </form>

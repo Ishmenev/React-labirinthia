@@ -5,40 +5,69 @@ export default class Email extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      errorText: ''
+      email: {
+        errorMessage: 'Введите правильный email',
+        valid: false,
+        touched: false,
+      }
     }
   }
 
   passData = (e) => {
     const {name, value} = e.target;
-    const errorText = this.state.errorText
 
     if(!value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)) {
       this.setState({
-        errorText: 'Email is not valid'
+        [name]: {
+          touched: true,
+          valid: false
+        }
       })
-      this.props.onInvalid(name, errorText)
-    } else {
+      this.props.onInvalid(name, value)
+    }
+
+    if(value === '') {
       this.setState({
-        errorText: ''
+        [name]: {
+          touched: true,
+          valid: true
+        }
+      })
+      this.props.onInvalid(name, value)
+    } 
+
+    if(value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)) {
+      this.setState({
+        [name]: {
+          touched: true,
+          valid: true
+        }
       })
       this.props.onValid(name, value)
-    }    
+    }
   }
-
 
   render() {
 
     return(
       <div>
-        <input 
+        <input
           type='text'
           name='email'
-          placeholder='Email'
+          value={this.props.value}
           onChange={(e) => this.passData(e)}
-          className={styles.feedback__email}/>
-        <p>{this.state.errorText.length > 0 && <span className={styles.feedback__error}>{this.state.errorText}</span>}</p>
-      </div>
+          placeholder='Email'
+          className={styles.feedback__email}
+        />
+
+        {
+          !this.state.email.valid && this.state.email.touched
+            ? <span className={styles.feedback__error}>{'Введите верное значение'}</span>
+            : null
+        }
+      
+    </div>
+
     ) 
   }
 }

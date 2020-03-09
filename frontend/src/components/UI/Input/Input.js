@@ -5,40 +5,126 @@ export default class Input extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      errorText: ''
+      username: {
+        errorMessage: 'Введите правильный username',
+        valid: false,
+        touched: false,
+      },
+      lastname: {
+        errorMessage: 'Введите правильный lastname',
+        valid: false,
+        touched: false,
+      },
+      subject: {
+        errorMessage: 'Введите правильный subject',
+        valid: false,
+        touched: false,
+      }
+
     }
   }
 
   passData = (e) => {
-    const value = e.target.value;
-    const name = this.props.name;
-    const errorText = this.state.errorText
+    const {name, value} = e.target;
 
-    if(!value.length > 0) {
+    if(value.length < 6) {
       this.setState({
-        errorText: 'This field should not be empty...'
+        [name]: {
+          touched: true,
+          valid: false
+        }
       })
       this.props.onInvalid(name, value)
-    } else {
+    }
+
+    if(value === '') {
       this.setState({
-        errorText: ''
+        [name]: {
+          touched: true,
+          valid: true
+        }
+      })
+      this.props.onInvalid(name, value)
+    } 
+
+    if(value.length >= 6) {
+      this.setState({
+        [name]: {
+          touched: true,
+          valid: true
+        }
       })
       this.props.onValid(name, value)
-    }    
+    }
   }
 
 
   render() {
+    let content = null;
+    let {nameType} = this.props;
+
+    if (nameType === 'username') {
+      content =       
+        <div>
+          <input
+            type='text'
+            name='username'
+            value={this.props.value}
+            onChange={(e) => this.passData(e)}
+            placeholder='Имя'
+            className={styles.feedback__input}
+          />
+          {
+            !this.state.username.valid && this.state.username.touched
+              ? <span className={styles.feedback__error}>{'Введите верное значение'}</span>
+              : null
+          }
+          
+        </div>
+
+    } 
+    else if (nameType === 'lastname') {
+      content =       
+      <div>
+        <input
+          type='text'
+          name={nameType}
+          value={this.props.value}
+          onChange={(e) => this.passData(e)}
+          placeholder='Фамилия'
+          className={styles.feedback__input}
+        />
+
+        {
+          !this.state.lastname.valid && this.state.lastname.touched
+            ? <span className={styles.feedback__error}>{'Введите верное значение'}</span>
+            : null
+        }
+      </div>
+    }
+    else if (nameType === 'subject') {
+      content =       
+      <div>
+        <input
+          type='text'
+          name={nameType}
+          value={this.props.value}
+          onChange={(e) => this.passData(e)}
+          placeholder='Тема сообщения'
+          className={styles.feedback__input}
+        />
+
+        {
+          !this.state.subject.valid && this.state.subject.touched
+            ? <span className={styles.feedback__error}>{'Введите верное значение'}</span>
+            : null
+        }
+      </div>
+    }
+
 
     return(
-      <div>
-        <input 
-          type='text'
-          placeholder={this.props.name}
-          onChange={(e) => this.passData(e)}
-          className={styles.feedback__input}/>
-        <p>{this.state.errorText.length > 0 && <span className={styles.feedback__error}>{this.state.errorText}</span>}</p>
-      </div>
+      content
     ) 
   }
 }
