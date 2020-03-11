@@ -2,11 +2,13 @@ import { combineReducers } from 'redux';
 import main from './main';
 import games from './games';
 import account from './account';
+import user from './user';
 
 export default combineReducers({
   main,
   games,
-  account
+  account,
+  user
 })
 
 // const reducer = (state, action) => {

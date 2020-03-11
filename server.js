@@ -3,22 +3,25 @@ const path = require("path");
 const config = require("config");
 const connectDB = require("./config/db");
 
-const main = require("./backend/routes/main");
 
+
+const main = require("./backend/routes/main");
+const user = require("./backend/routes/user");
 
 // Создаем приложение
 const app = express();
 
 connectDB(); 
 
-app.use(express.json({ extended: false }));
+app.use(express.json({ extended: true }));
 
 // Порт - или уже существует (на сервере), или берем готовый (на локалке)
 const port = process.env.PORT || config.get("defaultPort");
 
 // Рутер с информацией для главной
 app.use("/api/main", main);
-
+// Рутер пользователя
+app.use("/api/user", user);
 
 // Статические ассеты в продакшене
 if (process.env.NODE_ENV === "production") {

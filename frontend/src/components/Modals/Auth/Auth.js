@@ -2,8 +2,10 @@ import React, {Component} from 'react';
 import styles from './Auth.module.scss';
 import Title from '../../UI/Title/Title';
 import Button from '../../UI/Button/Button';
+import { connect } from 'react-redux';
+import {loginUser} from '../../../actions/user';
 
-export default class Auth extends Component {
+class Auth extends Component {
   constructor(props){
     super(props);
     this.state = {
@@ -13,6 +15,23 @@ export default class Auth extends Component {
 
   modalClose = () => {
     this.setState({isModalOpened: !this.state.isModalOpened})
+  }
+
+  getDataFromVK = () => {
+    const VK = window.VK;
+    VK.Auth.login((res) => {
+
+      if (res.status === 'connected') {
+        const user = res.session.user;
+
+        const data = {
+          type: 'vk',
+          user
+        }
+
+        this.props.loginUser(data);
+      }
+    })
   }
 
   render() {
@@ -29,7 +48,7 @@ export default class Auth extends Component {
           <p className={styles.auth__announce}>Вы можете авторизоваться через одну из социальных сетей</p>
           <ul className={styles.auth__socials}>
             <li className={`${styles.auth__option} ${styles.auth__option_vc}`}>
-              <a className={`${styles.auth__link} ${styles.auth__link_vc}`} href='#'>Вконтакте</a>
+              <a className={`${styles.auth__link} ${styles.auth__link_vc}`} id={'login'} onClick={this.getDataFromVK} href='#'>Вконтакте</a>
             </li>
             <li className={`${styles.auth__option} ${styles.auth__option_ok}`}>
               <a className={`${styles.auth__link} ${styles.auth__link_ok}`} href='#'>Одноклассники</a>
@@ -51,3 +70,13 @@ export default class Auth extends Component {
   }
 
 }
+
+
+const mapStateToProps = state => {
+  // console.log(state)
+  return {
+      user: state.user,
+  }
+}
+
+export default connect(mapStateToProps, {loginUser})(Auth)
