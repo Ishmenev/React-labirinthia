@@ -10,9 +10,9 @@ const user = (state = initialState, action) => {
        case 'LOGIN_USER':
         return {
             data: {
-                ...action.payload,
-                isAuth: true
+                ...action.payload
             },
+            isAuth: true,
             isFetching: true
         };
         

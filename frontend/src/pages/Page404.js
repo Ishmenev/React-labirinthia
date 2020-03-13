@@ -4,7 +4,7 @@ export default class Page404 extends Component {
 
   render() {
     return (
-      <div></div>
+      <div style={{'fontSize': '500px'}}>404</div>
     )
   }
 }
