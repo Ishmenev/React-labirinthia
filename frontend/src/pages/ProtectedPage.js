@@ -3,16 +3,16 @@ import Intro from '../components/Intro/Intro';
 import PrivateInfo from '../components/PrivateInfo/PrivateInfo';
 import { Container } from 'reactstrap';
 
-const Page404 = () => {
+const ProtectedPage = () => {
 
   return (
     <React.Fragment>
-      <Intro introType={'local'} label='404 страница отсутствует'/>
+      <Intro introType={'local'} label='Доступ на страницу ограничен'/>
       <Container>
-        {/* <PrivateInfo/> */}
+        <PrivateInfo/>
       </Container>
     </React.Fragment>
   )
 }
 
-export default Page404;
+export default ProtectedPage;

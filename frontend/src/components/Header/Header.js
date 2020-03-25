@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, Redirect, Route} from 'react-router-dom';
 import { 
   Navbar, 
   Container, 
@@ -8,15 +8,19 @@ import {
   Nav
 } from 'reactstrap';
 import Auth from '../Modals/Auth/Auth';
+import Logout from '../Modals/Logout/Logout';
 import styles from './Header.module.scss';
 
 export default class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isOpen: false
+      isOpen: false,
+      authClosed: false,
+      authError: false
     }
   }
+  
 
   toggle = () => {
     this.setState((state) => {
@@ -24,13 +28,87 @@ export default class Header extends Component {
         isOpen: !state.isOpen
       }
     })
-  }  
+  }
+
+  modalClose = () => {
+      this.props.history.push(this.props.location.pathname)
+  }
+
+  modalRedirect = () => {
+    this.setState(state => {
+      return {
+        authClosed: !state.authClosed
+      }
+    })  
+    this.modalClose()
+  }
+
+  modalError = () => {
+    this.setState(state => {
+      return {
+        authError: !state.authError
+      }
+    })
+  }
         
   render() {
+    const params = new URLSearchParams(this.props.location.search)
+    let content = null;
+
+    if(!this.state.authClosed && !this.state.authError) {
+      content = (
+        <div>
+          <Link to={{pathname: this.props.location.pathname, search: '?login=true'}} 
+          className={`${styles.navbar__private} ${styles.navbar__private_display}`}>
+          Личный кабинет
+          </Link>
+          <div>
+          {params.get('login') 
+            && <Auth onClose={this.modalClose}
+            onRedirect={this.modalRedirect}
+            onError={this.modalError}/>}
+          </div>
+        </div>
+      )
+    } else if(!this.state.authClosed && this.state.authError) {
+      content = (
+        <div>
+          <Link to={{pathname: this.props.location.pathname, search: '?login=true'}}
+          // Перед повторной проверкой возвращает СТЕЙТ с ошибкой в изначальное состояние
+            onClick={this.modalError}  
+            className={`${styles.navbar__private} ${styles.navbar__private_display}`}>
+            Личный кабинет
+          </Link>
+          <div>
+            <Redirect to={{pathname: '/error/'}}/>
+            {params.get('login') 
+              && <Auth onClose={this.modalClose}
+              onRedirect={this.modalRedirect}
+              onError={this.modalError}/>}
+          </div>
+        </div>
+      )
+    } else if(this.state.authClosed){
+      content = (
+        <div>
+          <Link to={{pathname: this.props.location.pathname, search: '?logout=true'}}
+            className={`${styles.navbar__private} ${styles.navbar__private_display}`}>
+            Выйти из кабинета
+          </Link>
+          <div>
+            <Redirect to={{pathname: this.props.location.pathname}}/>
+            {params.get('logout')
+              && <Logout 
+              onClose={this.modalClose}
+              onRedirect={this.modalRedirect}/>}
+          </div>        
+        </div>
+      )
+    }
+
     return (
       <div>
         <Navbar className={styles.navbar} expand='lg' >
-          <Auth/>
           <Container>
             <Link className={styles.navbar__brand} to='/'><span className={styles.navbar__logo}>labirinthia.ru</span></Link>
             <NavbarToggler onClick={this.toggle}>
@@ -39,17 +117,29 @@ export default class Header extends Component {
               <Collapse isOpen={this.state.isOpen} navbar>
                 <Nav className={styles.navbar_nav} navbar>
                   <li>
-                    <NavLink className={styles.navbar__option} activeClassName={styles.navbar__option_active} to='/games/'>Играть</NavLink>
+                    <NavLink className={styles.navbar__option} 
+                      activeClassName={styles.navbar__option_active} 
+                      to='/games/'>
+                        Играть
+                    </NavLink>
                   </li>
                   <li>
-                    <NavLink className={styles.navbar__option} activeClassName={styles.navbar__option_active} to='/creativity/'>Создать уровень</NavLink>
+                    <NavLink className={styles.navbar__option} 
+                      activeClassName={styles.navbar__option_active} 
+                      to='/creativity/'>
+                        Создать уровень
+                    </NavLink>
                   </li>
                   <li>
-                    <NavLink className={styles.navbar__option} activeClassName={styles.navbar__option_active} to='/account/'>Кабинет</NavLink>
+                    <NavLink className={styles.navbar__option} 
+                      activeClassName={styles.navbar__option_active} 
+                      to='/account/'>
+                        Кабинет
+                    </NavLink>
                   </li>
                 </Nav>
                 <div className={styles.navbar__login}>
-                  <Link to='/account/' className={`${styles.navbar__private} ${styles.navbar__private_display}`}>Личный кабинет</Link>
+                  {content}
                 </div>
               </Collapse>
           </Container>
