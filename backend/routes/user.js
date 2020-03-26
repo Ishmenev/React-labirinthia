@@ -19,6 +19,16 @@ router.post('/login/', async (req, res) => {
             secondName: data.user.last_name,
         }
     }
+    
+    else if (data.type === 'google') {
+        if (data.type === 'vk') {
+            userData = {
+                userId: data.userId,
+                firstName: data.firstName,
+                secondName: data.secondName,
+            }
+        }
+    }
     try {
         const newUser = new Login(userData)
         const user = await newUser.save()

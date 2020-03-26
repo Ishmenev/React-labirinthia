@@ -12,7 +12,25 @@ class Auth extends Component {
       isModalOpened: true
     }
   }
-
+  
+  componentDidMount() {
+    const ID = '228152851196-g7nir1ev5lfqs59ed5c0haerb0mdnp30.apps.googleusercontent.com'
+    const _onInit = auth2 => {
+      console.log('init OK', auth2)
+    }
+    const _onError = err => {
+      console.log('error', err)
+    }
+    window.gapi.load('auth2', function() {
+      window.gapi.auth2
+          .init({
+            client_id:
+            ID,
+          })
+          .then(_onInit, _onError)
+    })
+  }
+  
   modalClose = () => {
     this.setState({isModalOpened: !this.state.isModalOpened})
   }
@@ -33,6 +51,34 @@ class Auth extends Component {
       }
     })
   }
+  
+  getDataFromGoogle = () => {
+  
+  
+    const auth2 = window.gapi.auth2.getAuthInstance()
+    auth2.signIn().then(googleUser => {
+      
+      // метод возвращает объект пользователя
+      // где есть все необходимые нам поля
+      const profile = googleUser.getBasicProfile()
+      const data = {
+        type: 'google',
+        user: {
+          userId: profile.getId(),
+          firstName: profile.getGivenName(),
+          secondName: profile.getFamilyName()
+        }
+      };
+  
+      this.props.loginUser(data);
+      console.log('ID: ' + profile.getId()) // не посылайте подобную информацию напрямую, на ваш сервер!
+      
+    
+      // токен
+      const id_token = googleUser.getAuthResponse().id_token
+      console.log('ID Token: ' + id_token)
+    })
+  }
 
   render() {
     let content = null;
@@ -51,7 +97,7 @@ class Auth extends Component {
               <a className={`${styles.auth__link} ${styles.auth__link_vc}`} id={'login'} onClick={this.getDataFromVK} href='#'>Вконтакте</a>
             </li>
             <li className={`${styles.auth__option} ${styles.auth__option_ok}`}>
-              <a className={`${styles.auth__link} ${styles.auth__link_ok}`} href='#'>Одноклассники</a>
+              <span className={`${styles.auth__link} ${styles.auth__link_ok}`} onClick={this.getDataFromGoogle}>Google</span>
             </li>
             <li className={`${styles.auth__option} ${styles.auth__option_fb}`}>
               <a className={`${styles.auth__link} ${styles.auth__link_fb}`} href='#'>Facebook</a>
