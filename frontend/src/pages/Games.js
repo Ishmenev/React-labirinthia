@@ -3,13 +3,13 @@ import Intro from '../components/Intro/Intro';
 import Filters from '../components/UI/Filters/Filters';
 import { Container } from 'reactstrap';
 
-const Games = ({data: {news, levels}}) => {
+const Games = () => {
 
   return (
     <React.Fragment>
       <Intro introType={'local'} label='Играть'/>
       <Container>
-        <Filters levels={levels}/>
+        <Filters />
       </Container>
     </React.Fragment>
   )

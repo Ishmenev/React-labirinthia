@@ -2,13 +2,11 @@ import React from 'react';
 import styles from './Filters.module.scss';
 import Title from '../Title/Title';
 import {NavLink, Redirect, Switch} from 'react-router-dom';
-import {Router, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 import Options from '../../Options/Options';
-import createHistory from 'history/createBrowserHistory';
+import store from '../../../store';
 
-const history = createHistory();
-
-const Filters = ({levels}) => {
+const Filters = () => {
 
   return (
       <div className={styles.filters}>
@@ -16,31 +14,31 @@ const Filters = ({levels}) => {
           <h2 className={styles.filters__name}>Уровни</h2>
           <h2 className={styles.filters__display}>К сожалению, этот раздел доступен только с компьютера</h2>
         </Title>
-        <Router history={history}>
+        <Router>
           <div className={styles.filters__wrapper}>
             <NavLink
-              to='/games/all'
+              to='/games/all/'
               className={styles.filters__link}
               activeClassName={styles.filters__link_active}
               >
               Все</NavLink>
             <NavLink
-              to='/games/creative'
+              to='/games/creative/'
               className={styles.filters__link}
               activeClassName={styles.filters__link_active}
               >
               Пользовательские</NavLink>
             <NavLink
-              to='/games/narrative'
+              to='/games/narrative/'
               className={styles.filters__link}
               activeClassName={styles.filters__link_active}
               >
               Сюжетные</NavLink>
-            <Redirect to='/games/all'></Redirect>    
+            <Redirect to='/games/all/'></Redirect>    
           </div>
           <Switch>
             <Route path='/games/:filter?' children={({match}) => {
-              return <Options levels={levels} filter={match.params}/>
+              return <Options levels={store.getState().games.data.levels} filter={match.params}/>
             }}/>
           </Switch>
         </Router>

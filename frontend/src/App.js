@@ -1,58 +1,72 @@
-import React from 'react';
+import React, {Component} from 'react';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
-import {Router, Route, Switch} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import GamesContainer from './containers/GamesContainer';
 import AccountContainer from './containers/AccountContainer';
 import Start from './pages/Start';
+import ProtectedPage from './pages/ProtectedPage';
 import Page404 from './pages/Page404';
+import LoginError from './pages/LoginError';
 import OwnLevel from './pages/OwnLevel';
 import MainContainer from './containers/MainContainer';
-import createHistory from 'history/createBrowserHistory';
+import { connect } from 'react-redux';
 import './bootstrap.min.css';
 import './style.css';
-const history = createHistory();
 
-function App({store}) {
- 
-  
-  return (
-    <div className='wrapper'>
-      <div className='sections'>
-        <Router history={history}>
-          <Header/>
-            <Switch>
-              <Route exact path='/' component={MainContainer}/>
-              <Route path='/games/:all?' component={GamesContainer} />
-              <PrivateRoute path='/account' component={AccountContainer} store={store}/>
-              <Route path='/creativity' component={OwnLevel}/>
-              <Route path='/start' component={Start}/>
-            </Switch>
-        </Router>
+const PrivateRoute = ({component: Component, store, path}) => {
+  return <Route path={path}
+    render={props => {
+      return store ? <Component {...props}/> : <ProtectedPage/>
+    }
+  }/>
+}
+
+class App extends Component {
+
+  render() {
+    return (
+      <div className='wrapper'>
+        <div className='sections'>
+          <Router>
+            <Route path='/' component={Header}/>
+              <Switch>
+                <Route exact path='/' component={MainContainer}/>
+                <Route path='/games/' component={GamesContainer} />
+                <PrivateRoute 
+                  path='/account/' 
+                  store={this.props.user} 
+                  component={AccountContainer} />
+                <PrivateRoute 
+                  path='/creativity/' 
+                  store={this.props.user} 
+                  component={OwnLevel} />
+                <Route path='/start/' component={Start}/>
+                <Route path='/error/' component={LoginError}/>
+                <Route component={Page404}/>
+              </Switch>
+          </Router>
+        </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
-  );
-}
-
-export default App;  
-
-
-const PrivateRoute = ({component: Component, store}) => {
-
-  // пользователь авторизован
-  if (checkUserAuth(store)) {
-    return <Component/>
+    );      
   }
+}
 
-  else {
-    return <Page404/>
+const mapStateToProps = state => {
+  return {
+      user: state.user.isAuth
   }
-  
 }
 
-const checkUserAuth = (store) => {
-  console.log('checkUserAuth', store.getState().user.isAuth)
-  // проверяем факт авторизации пользователя, в будущем добавим запрос на сервер, проверяющий токен
-  return store.getState().user.isAuth
-}
+export default connect(mapStateToProps)(App)
+
+
+
+
+
+
+
+
+
+

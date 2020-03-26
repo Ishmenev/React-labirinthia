@@ -1,18 +1,11 @@
 import React, {Component} from 'react';
 import styles from './Auth.module.scss';
 import Title from '../../UI/Title/Title';
-import Button from '../../UI/Button/Button';
+import {createPortal} from 'react-dom';
 import { connect } from 'react-redux';
 import {loginUser} from '../../../actions/user';
 
 class Auth extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      isModalOpened: true
-    }
-  }
-  
   componentDidMount() {
     const ID = '228152851196-g7nir1ev5lfqs59ed5c0haerb0mdnp30.apps.googleusercontent.com'
     const _onInit = auth2 => {
@@ -31,15 +24,12 @@ class Auth extends Component {
     })
   }
   
-  modalClose = () => {
-    this.setState({isModalOpened: !this.state.isModalOpened})
-  }
-
+  
   getDataFromVK = () => {
     const VK = window.VK;
     VK.Auth.login((res) => {
 
-      if (res.status === 'connected') {
+      if (res.status === 'conected') {
         const user = res.session.user;
 
         const data = {
@@ -48,13 +38,18 @@ class Auth extends Component {
         }
 
         this.props.loginUser(data);
+        this.props.onRedirect();
+        
+      } else {
+        this.props.onError()
+        this.props.onClose();
       }
     })
   }
   
   getDataFromGoogle = () => {
-  
-  
+    
+    
     const auth2 = window.gapi.auth2.getAuthInstance()
     auth2.signIn().then(googleUser => {
       
@@ -69,11 +64,11 @@ class Auth extends Component {
           secondName: profile.getFamilyName()
         }
       };
-  
+      
       this.props.loginUser(data);
       console.log('ID: ' + profile.getId()) // не посылайте подобную информацию напрямую, на ваш сервер!
       
-    
+      
       // токен
       const id_token = googleUser.getAuthResponse().id_token
       console.log('ID Token: ' + id_token)
@@ -81,13 +76,11 @@ class Auth extends Component {
   }
 
   render() {
-    let content = null;
 
-    if(this.state.isModalOpened) {
-      content = (
-        <div className={styles.auth}>
+    return createPortal(
+      <div className={styles.auth}>
         <div className={styles.auth__wrapper}>
-          <button onClick={this.modalClose} className={styles.auth__close}></button>
+          <button onClick={this.props.onClose} className={styles.auth__close}></button>
           <Title>
             <h2 className={styles.auth__name}>Авторизоваться</h2>
           </Title>
@@ -104,24 +97,15 @@ class Auth extends Component {
             </li>
           </ul>
         </div>        
-      </div>
-      )
-    } else {
-      content = null;
-    }
-
-    return (
-      content
+      </div>,
+      document.getElementById('modal')
     )  
   }
-
 }
 
-
 const mapStateToProps = state => {
-  // console.log(state)
   return {
-      user: state.user,
+      user: state.user
   }
 }
 
