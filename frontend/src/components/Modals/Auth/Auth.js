@@ -66,14 +66,11 @@ class Auth extends Component {
       };
       
       this.props.loginUser(data);
+      this.props.onRedirect();
       console.log('ID: ' + profile.getId()) // не посылайте подобную информацию напрямую, на ваш сервер!
-      
-      
-      // токен
-      const id_token = googleUser.getAuthResponse().id_token
-      console.log('ID Token: ' + id_token)
+
     })
-  }
+  };
 
   render() {
 
