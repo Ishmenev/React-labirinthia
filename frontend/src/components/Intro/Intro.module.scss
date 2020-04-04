@@ -2,16 +2,12 @@
 
 .intro {
   width: 100%;
-  background-size: auto;
-  background-image: url("./img/head-desk.png");
+  background-size: cover;
+  background-image: url("./img/head-desk.jpg");
   background-repeat: no-repeat;
-  background-position: center -30px;
+  background-position: center;
   text-align: center;
-
-  @media (max-width: $tablet-width) {
-    background-image: url("./img/intro-tablet.png");
-    background-position: center -90px;
-  }
+  box-shadow: 0px 4px 34px rgba(0, 0, 0, 0.7);
 }
 
 .intro__title {
@@ -90,7 +86,7 @@
     display: none;
   }
 }
-  
+
 .intro__text {
   color: $white;
   font-size: 24px;
@@ -148,17 +144,25 @@
   background-repeat: no-repeat;
 }
 
-  
+
 .intro__compass {
   display: inline-block;
   width: 149px;
   height: 113px;
   text-align: center;
   background-image: url('./img/intro-decor.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  margin: 10px;
+
+  @media (max-width: $desktop-width) {
+    width: 129px;
+    height: 93px;
+    background-size: contain;
+  }
 
   @media (max-width: $tablet-width) {
     display: none;
   }
 }
-
-  
