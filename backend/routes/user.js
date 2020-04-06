@@ -21,17 +21,25 @@ router.post('/login/', async (req, res) => {
     }
     
     else if (data.type === 'google') {
-        if (data.type === 'vk') {
-            userData = {
-                userId: data.userId,
-                firstName: data.firstName,
-                secondName: data.secondName,
-            }
+        userData = {
+            userId: data.user.userId,
+            firstName: data.user.firstName,
+            secondName: data.user.secondName,
         }
     }
+    console.dir(data.type, userData)
     try {
-        //const newUser = new Login(userData)
-        //const user = await newUser.save()
+        const updatedData = {
+            social: data.type,
+            createdLevels: 0,
+            completedLevels: 0,
+            character: 'warrior',
+            achievements: [
+                'novice'
+            ]
+        };
+        console.dir(userData)
+        userData = Object.assign(userData, updatedData);
         
         jwt.sign(userData, 'secret', { expiresIn: '25s' }, (error, token) => {
             res.json({
@@ -54,7 +62,7 @@ router.post('/login/', async (req, res) => {
 
 router.post('/login/auth/', async (req, res) => {
     const bearerHeader =  req.headers['authorization'];
-    console.log(bearerHeader)
+    
     if (typeof bearerHeader !== 'undefined') {
         const bearer = bearerHeader.split(' ');
         const bearerToken = bearer[1];
