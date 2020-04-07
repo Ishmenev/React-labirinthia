@@ -105,15 +105,19 @@ export default class Header extends Component {
         </div>
       )
     }
-
+    let toggleClass = `${styles.navbar_toggler}`;
+    const { isOpen } = this.state;
+    if (isOpen) {
+      toggleClass += ` ${styles.active}`
+    }
     return (
       <div>
         <Navbar className={styles.navbar} expand='lg' >
           <Container>
             <Link className={styles.navbar__brand} to='/'><span className={styles.navbar__logo}>labirinthia.ru</span></Link>
-            <NavbarToggler onClick={this.toggle}>
-              <span className={styles.navbar_toggler_icon}></span>
-            </NavbarToggler>
+            <button type="button" className={toggleClass} aria-label="Toggle navigation" onClick={this.toggle}>
+              <span className={styles.navbar_toggler_bar}></span>
+            </button>
               <Collapse isOpen={this.state.isOpen} navbar>
                 <Nav className={styles.navbar_nav} navbar>
                   <li>
