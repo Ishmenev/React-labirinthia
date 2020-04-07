@@ -22,66 +22,75 @@
 }
 
 .navbar_toggler {
-  position: relative;
-  display: block;
-  overflow: hidden;
-  padding: 0;
-  width: 26px;
-  height: 23px;
-  border: none;
-  background: transparent;
-  outline: none;
+  display: none;
 
-  &.active {
-    .navbar_toggler_bar {
-      background: none;
+  @media (max-width: 991px) {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    padding: 0;
+    width: 26px;
+    height: 23px;
+    border: none;
+    background: transparent;
+    outline: none;
 
-      &::before {
-        top: 0;
-        transform: rotate(45deg);
+    &.active {
+      .navbar_toggler_bar {
+        background: none;
+
+        &::before {
+          top: 0;
+          transform: rotate(45deg);
+        }
+
+        &::after {
+          bottom: 0;
+          transform: rotate(-45deg);
+        }
       }
 
-      &::after {
-        bottom: 0;
-        transform: rotate(-45deg);
-      }
     }
-
   }
 }
 
 .navbar_toggler_bar {
-  display: block;
-  position: absolute;
-  top: 50%;
-  left: 0;
-  height: 2px;
-  border-radius: 10px;
-  width: 100%;
-  background: #fff;
-  transform: translateY(-50%);
+  display: none;
 
-  &::before,
-  &::after {
-    content: "";
-    position: absolute;
+  @media (max-width: 991px) {
     display: block;
+    position: absolute;
+    top: 50%;
     left: 0;
-    width: 100%;
     height: 2px;
     border-radius: 10px;
+    width: 100%;
     background: #fff;
-    transition: 0.5s;
-  }
+    transform: translateY(-50%);
 
-  &::before {
-    top: -10px;
-    transition-property: top, transform;
-  }
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      display: block;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      border-radius: 10px;
+      background: #fff;
+      transition: 0.5s;
+    }
 
-  &::after {
-    bottom: -10px;
-    transition-property: bottom, transform;
+    &::before {
+      top: -10px;
+      transition-property: top, transform;
+    }
+
+    &::after {
+      bottom: -10px;
+      transition-property: bottom, transform;
+    }
+
   }
 }
 
