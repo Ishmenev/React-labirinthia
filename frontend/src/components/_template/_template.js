@@ -11,7 +11,7 @@ export default class _template extends Component {
     render() {
 
         return (
-            <div className={styles.block}></div>
+            <div className={styles._class}></div>
         );
     }
 }
