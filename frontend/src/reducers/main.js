@@ -1,6 +1,9 @@
 const initialState = {
-  data: null,
-  isFetching: false
+  data: {
+    news: null,
+    levels: null
+  },
+  isFetching: null
 };
 
 const main = (state = initialState, action) => {

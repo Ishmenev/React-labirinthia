@@ -24,14 +24,13 @@ function requestDataFetching() {
 }
 
 function fetchingDataSuccess(data) {
-  const newData = {
-    news: data.properties,
-    levels: data.levels
-  };
 
   return {
     type: 'FETCHING_DATA_SUCCESS',
-    payload: newData
+    payload: data = {
+      news: data.properties,
+      levels: data.levels
+    }
   }
 }
 

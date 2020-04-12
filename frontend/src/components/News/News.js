@@ -3,16 +3,16 @@ import Slider from "react-slick";
 import { Container } from 'reactstrap';
 import styles from './News.module.scss';
 import Title from '../UI/Title/Title';
+import {connect} from 'react-redux';
 import "slick-carousel/slick/slick.scss";
 import "slick-carousel/slick/slick-theme.scss";
 
-export default class News extends Component {
-  constructor(props) {
-    super(props);
-  }
+class News extends Component {
 
 
   render() {
+
+    console.log(this.props.news)
 
     const settings = {
       dots: true,
@@ -33,6 +33,7 @@ export default class News extends Component {
         }
       ]
     };
+
 
     return(
       <div className={styles.news}>
@@ -56,3 +57,12 @@ export default class News extends Component {
     )
   }
 }
+
+const mapStateToProps = state => {
+  // console.log(state)
+  return {
+      news: state.main.data.news,
+  }
+}
+
+export default connect(mapStateToProps)(News)

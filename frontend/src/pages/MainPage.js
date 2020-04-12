@@ -4,15 +4,15 @@ import Info from '../components/Info/Info';
 import Levels from '../components/Levels/Levels';
 import News from '../components/News/News';
 import Feedback from '../components/Feedback/Feedback';
+import LoaderContainer from '../containers/LoaderContainer';
 
-const MainPage = ({data: {news, levels}}) => {
+const MainPage = () => {
 
   return (
     <React.Fragment>
       <Intro introType={'main'} label='Лабиринтия' />
       <Info/>
-      <Levels/>
-      <News news={news}/>
+      <LoaderContainer/>
       <Feedback/>
     </React.Fragment>
   )
