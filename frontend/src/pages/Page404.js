@@ -1,8 +1,6 @@
 import React from 'react';
 import Intro from '../components/Intro/Intro';
 import TechTemplate from '../components/TechTemplate/TechTemplate';
-import { Container, Row, Col } from 'reactstrap';
-import Title from '../components/UI/Title/Title';
 import {Link} from 'react-router-dom';
 
 const Page404 = () => {
