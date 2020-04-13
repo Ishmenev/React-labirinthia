@@ -27,6 +27,10 @@ body {
 }
 
 .sections {
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  align-items: stretch;
   min-height: 100%;
   flex-grow: 1;
 } 

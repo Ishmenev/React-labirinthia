@@ -1,16 +1,18 @@
 import React from 'react';
 import Intro from '../components/Intro/Intro';
-import PrivateInfo from '../components/PrivateInfo/PrivateInfo';
-import { Container } from 'reactstrap';
+import TechTemplate from '../components/TechTemplate/TechTemplate';
+import { Container, Row, Col } from 'reactstrap';
+import Title from '../components/UI/Title/Title';
+import {Link} from 'react-router-dom';
 
 const Page404 = () => {
-
   return (
     <React.Fragment>
-      <Intro introType={'local'} label='404 страница отсутствует'/>
-      <Container>
-        {/* <PrivateInfo/> */}
-      </Container>
+      <Intro introType={'local'} label='404'/>
+      <TechTemplate>
+        <p>Похоже что такой страницы не существует :(</p>
+        <p>Вы можете перейти на <Link to={'/'}>главную страницу</Link>.</p>
+      </TechTemplate>
     </React.Fragment>
   )
 }

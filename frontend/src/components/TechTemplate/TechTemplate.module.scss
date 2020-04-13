@@ -1,6 +1,6 @@
 @import "../../variables.scss";
 
-.private {
+.tech {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -11,18 +11,16 @@
   position: relative;
   min-height: 550px;
   text-align: center;
+  flex-grow: 1;
 }
   
-.private__title {
+.tech__title {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100%;
   text-align: center;
-}
-  
-.private__name {
   font-size: 30px;
   line-height: 33px;
  
@@ -41,7 +39,7 @@
   }
 }
 
-.private__button {
+.tech__button {
   display: inline-block;
   color: $brown;
   text-decoration: none;

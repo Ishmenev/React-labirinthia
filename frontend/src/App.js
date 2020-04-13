@@ -38,11 +38,11 @@ class App extends Component {
                 <Route exact path='/' component={MainContainer}/>
                 <Route path='/games/' component={GamesContainer} />
                 <PrivateRoute 
-                  path='/account/'
+                  exact path='/account/'
                   data={this.props}
                   component={AccountContainer} />
                 <PrivateRoute 
-                  path='/creativity/'
+                  exact path='/creativity/'
                   data={this.props}
                   component={OwnLevel} />
                 <Route path='/start/' component={Start}/>
