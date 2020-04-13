@@ -1,24 +1,44 @@
 @import "../../variables.scss";
 
 .private {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin: 0;
   padding: 0;
   width: 100%;
   position: relative;
-  padding-top: 100px;
+  min-height: 550px;
   text-align: center;
 }
   
 .private__title {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  text-align: center;
 }
   
 .private__name {
   font-size: 30px;
   line-height: 33px;
-  margin-right: auto;
+ 
   text-transform: none;
   color: $white;
+  text-align: center;
+
+  a {
+    color: $white;
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: none;
+      color: $white;
+    }
+  }
 }
 
 .private__button {

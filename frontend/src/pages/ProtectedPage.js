@@ -7,7 +7,7 @@ const ProtectedPage = () => {
 
   return (
     <React.Fragment>
-      <Intro introType={'local'} label='Доступ на страницу ограничен'/>
+      <Intro introType={'local'} label='Нет доступа'/>
       <Container>
         <PrivateInfo/>
       </Container>

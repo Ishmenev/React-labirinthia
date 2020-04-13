@@ -3,6 +3,7 @@ import { Container, Row, Col } from 'reactstrap';
 import Title from '../UI/Title/Title';
 import Button from '../UI/Button/Button';
 import styles from './PrivateInfo.module.scss';
+import {Link} from 'react-router-dom';
 
 const PrivateInfo = () => {
 
@@ -12,14 +13,10 @@ const PrivateInfo = () => {
         <Row>
           <Col lg={12}>
             <Title subClass={styles.private__title}>
-              <h3 className={styles.private__name}>Данная страница доступна только авторизованным пользователям. Чтобы увидеть содержимое, пожалуйста, войдите в личный кабинет...</h3>
+              <p className={styles.private__name}>Данная страница доступна только авторизованным пользователям.</p>
+              <p className={styles.private__name}>Вы можете авторизоваться <Link to={'/?login=true'}>по ссылке</Link>.</p>
             </Title>
           </Col>
-          {/* <Col lg={12}>
-            <button className={styles.private__button}>
-              Попытаться еще раз
-            </button>
-          </Col> */}
         </Row>
       </Container>
     </div>
