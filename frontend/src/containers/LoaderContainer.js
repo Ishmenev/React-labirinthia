@@ -15,7 +15,7 @@ class LoaderContainer extends Component {
 
     if(this.props.isFetching === true) {
       return <Loader/>
-    } else if (this.props.isFetching === false && this.props.news == null) {
+    } else if (this.props.isFetching === false && this.props.errorStatus === true) {
       return <ErrorIndicator/>
     }
 
