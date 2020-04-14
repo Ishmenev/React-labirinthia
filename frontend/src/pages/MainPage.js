@@ -4,7 +4,6 @@ import Info from '../components/Info/Info';
 import Levels from '../components/Levels/Levels';
 import News from '../components/News/News';
 import Feedback from '../components/Feedback/Feedback';
-import LoaderContainer from '../containers/LoaderContainer';
 
 const MainPage = () => {
 
@@ -12,7 +11,8 @@ const MainPage = () => {
     <React.Fragment>
       <Intro introType={'main'} label='Лабиринтия' />
       <Info/>
-      <LoaderContainer/>
+      <Levels/>
+      <News/>
       <Feedback/>
     </React.Fragment>
   )

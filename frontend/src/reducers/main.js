@@ -3,7 +3,8 @@ const initialState = {
     news: null,
     levels: null
   },
-  isFetching: null
+  isFetching: null,
+  errorStatus: false
 };
 
 const main = (state = initialState, action) => {
@@ -18,19 +19,22 @@ const main = (state = initialState, action) => {
     case 'REQUEST_DATA_FETCHING':
       return {
         data: state.data,
-        isFetching: true
+        isFetching: true,
+        errorStatus: false
       };
     case 'FETCHING_DATA_SUCCESS':
       return {
         data: action.payload,
-        isFetching: false
+        isFetching: false,
+        errorStatus: false
       };
     case 'FETCHING_DATA_FAIL':
       return {
         data: {
           ...state.data
         },
-        isFetching: false
+        isFetching: false,
+        errorStatus: true
       };
     default:
       return state
