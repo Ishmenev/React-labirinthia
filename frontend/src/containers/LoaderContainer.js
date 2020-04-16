@@ -13,14 +13,18 @@ class LoaderContainer extends Component {
 
   render() {
 
-    if(this.props.isFetching === true) {
+    const {isFetching, errorStatus, news, children} = this.props;
+
+    if(isFetching === true && errorStatus === null) {
       return <Loader/>
-    } else if (this.props.isFetching === false && this.props.errorStatus === true) {
+    } else if (isFetching === false && news === null) {
+      return <ErrorIndicator/>
+    } else if (isFetching === false && errorStatus === true) {
       return <ErrorIndicator/>
     }
 
     return (
-      this.props.children
+      children
     )
   }
 }

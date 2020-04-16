@@ -13,8 +13,6 @@ class News extends Component {
 
   render() {
 
-    console.log(this.props.news)
-
     const settings = {
       dots: true,
       infinite: false,

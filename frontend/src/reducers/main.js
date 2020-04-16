@@ -4,7 +4,7 @@ const initialState = {
     levels: null
   },
   isFetching: null,
-  errorStatus: false
+  errorStatus: null
 };
 
 const main = (state = initialState, action) => {
@@ -20,13 +20,13 @@ const main = (state = initialState, action) => {
       return {
         data: state.data,
         isFetching: true,
-        errorStatus: false
+        errorStatus: null
       };
     case 'FETCHING_DATA_SUCCESS':
       return {
         data: action.payload,
         isFetching: false,
-        errorStatus: false
+        errorStatus: null
       };
     case 'FETCHING_DATA_FAIL':
       return {
@@ -34,7 +34,7 @@ const main = (state = initialState, action) => {
           ...state.data
         },
         isFetching: false,
-        errorStatus: true
+        errorStatus: action.payload
       };
     default:
       return state
