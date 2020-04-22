@@ -17,7 +17,7 @@ export default class Button extends Component {
         }
 
         else if (domType === 'button') {
-            content = <button className={styles.button}>{this.props.children}</button>
+            content = <button className={styles.button} onClick={this.props.onClick}>{this.props.children}</button>
         }
 
         else if (domType === 'simple') {

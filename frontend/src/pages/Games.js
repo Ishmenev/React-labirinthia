@@ -7,7 +7,7 @@ const Games = () => {
 
   return (
     <React.Fragment>
-      <Intro introType={'local'} label='Играть'/>
+      <Intro introType={'local'} label='Уровни'/>
       <Container>
         <Filters />
       </Container>

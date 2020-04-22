@@ -8,7 +8,7 @@ import Start from './pages/Start';
 import ProtectedPage from './pages/ProtectedPage';
 import Page404 from './pages/Page404';
 import LoginError from './pages/LoginError';
-import OwnLevel from './pages/OwnLevel';
+import CreateLevel from './containers/CreateContainer';
 import MainContainer from './containers/MainContainer';
 import { connect } from 'react-redux';
 import './bootstrap.min.css';
@@ -44,7 +44,7 @@ class App extends Component {
                 <PrivateRoute 
                   exact path='/creativity/'
                   data={this.props}
-                  component={OwnLevel} />
+                  component={CreateLevel} />
                 <Route path='/start/' component={Start}/>
                 <Route path='/error/' component={LoginError}/>
                 <Route component={Page404}/>

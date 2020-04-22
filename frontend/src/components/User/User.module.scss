@@ -144,7 +144,7 @@
 .user__logo {
   position: relative;
 
-  &::after {
+  &.vk::after {
     content: '';
     display: inline-block;
     width: 34px;
@@ -154,6 +154,19 @@
     left: 10px;
     background-image: url('./img/vk-logo.svg');
     background-repeat: no-repeat;
+  }
+
+  &.google::after {
+    content: '';
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 0px;
+    left: 20px;
+    background-image: url('./img/google-logo.png');
+    background-repeat: no-repeat;
+    background-size: contain;
   }
 }
 

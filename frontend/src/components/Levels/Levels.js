@@ -27,7 +27,7 @@ const Levels = () => {
           </Row>
         </ul>
         <p className={styles.levels__options}>Самые популярные уровни, больше уровней вы можете найти, кликнув по кнопке ниже</p>
-        <Button domType={'button'}>Кнопка</Button>
+        <Button domType={'link'} href={'/games/all/'}>Все уровни</Button>
       </Container>
     </div>
   );

@@ -9,6 +9,7 @@ class User extends Component {
 
   render() {
     const {user} = this.props;
+    const data = user.data.userData;
     console.log(user)
 
     return(
@@ -23,12 +24,13 @@ class User extends Component {
             </Col>
             <Col sm={12} md={9}>
               <ul className={styles.user__info}>
-                <li className={styles.user__firstname}>Имя: <span className={styles.user__text}>{user.name}</span></li>
-                <li className={styles.user__social}>Социальная сеть: <span className={styles.user__logo}></span></li>
-                <li className={styles.user__win}>Пройдено уровней: <span className={styles.user__text}>15</span></li>
-                <li className={styles.user__creative}>Создано уровней: <span className={styles.user__text}>2</span></li>
+                <li className={styles.user__firstname}>Имя: <span className={styles.user__text}>{data.firstName}</span></li>
+                <li className={styles.user__social}>Социальная сеть: <span className={`${styles.user__logo} ${styles[data.social]}`}></span></li>
               </ul>
-              <Button domType={'button'}>Выйти</Button>
+              <Button domType={'button'} onClick={() => {
+                window.localStorage.removeItem('token')
+                window.location = window.location.origin
+              }}>Выйти</Button>
             </Col>
           </Row>
         </Container>
@@ -39,7 +41,7 @@ class User extends Component {
 
 const mapStateToProps = state => {
   return {
-    user: state.account.user
+    user: state.user
   }
 }
 

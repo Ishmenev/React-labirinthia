@@ -19,107 +19,137 @@ export default class Input extends Component {
         errorMessage: 'Введите правильный subject',
         valid: false,
         touched: false,
+      },
+      number: {
+        errorMessage: 'Введите правильный number',
+        valid: false,
+        touched: false,
       }
-
     }
   }
 
-  passData = (e) => {
+  validateText = (e) => {
     const {name, value} = e.target;
-
-    if(value.length < 6) {
+    const minLength = this.props.minLength || 6;
+    const maxLength = this.props.minLength || 6;
+    
+    if(value.length < minLength || value.length > maxLength) {
       this.setState({
         [name]: {
           touched: true,
           valid: false
         }
-      })
+      });
+      this.props.onValid(name, value)
       this.props.onInvalid(name, value)
     }
 
-    if(value === '') {
+    else {
       this.setState({
         [name]: {
           touched: true,
           valid: true
         }
-      })
-      this.props.onInvalid(name, value)
-    } 
-
-    if(value.length >= 6) {
-      this.setState({
-        [name]: {
-          touched: true,
-          valid: true
-        }
-      })
+      });
       this.props.onValid(name, value)
     }
-  }
-
+  };
+  
+  validateNumber = (e) => {
+    const {name, value} = e.target;
+    
+    if (+value < this.props.minNumber || +value > this.props.maxNumber) {
+      this.props.onInvalid(name, value)
+    }
+    
+    else {
+      this.props.onValid(name, value)
+    }
+  };
 
   render() {
     let content = null;
-    let {nameType} = this.props;
+    let {inputType} = this.props;
 
-    if (nameType === 'username') {
+    if (inputType === 'username') {
       content =       
         <div>
           <input
             type='text'
             name='username'
             value={this.props.value}
-            onChange={(e) => this.passData(e)}
+            onChange={(e) => this.validateText(e)}
             placeholder='Имя'
-            className={styles.feedback__input}
+            className={styles.input}
           />
           {
             !this.state.username.valid && this.state.username.touched
-              ? <span className={styles.feedback__error}>{'Введите верное значение'}</span>
+              ? <span className={styles.error}>{'Введите верное значение'}</span>
               : null
           }
           
         </div>
 
     } 
-    else if (nameType === 'lastname') {
+    else if (inputType === 'lastname') {
       content =       
       <div>
         <input
           type='text'
-          name={nameType}
+          name={inputType}
           value={this.props.value}
-          onChange={(e) => this.passData(e)}
+          onChange={(e) => this.validateText(e)}
           placeholder='Фамилия'
-          className={styles.feedback__input}
+          className={styles.input}
         />
 
         {
           !this.state.lastname.valid && this.state.lastname.touched
-            ? <span className={styles.feedback__error}>{'Введите верное значение'}</span>
+            ? <span className={styles.error}>{'Введите верное значение'}</span>
             : null
         }
       </div>
     }
-    else if (nameType === 'subject') {
+    else if (inputType === 'subject') {
       content =       
       <div>
         <input
           type='text'
-          name={nameType}
+          name={this.props.name || inputType}
           value={this.props.value}
-          onChange={(e) => this.passData(e)}
-          placeholder='Тема сообщения'
-          className={styles.feedback__input}
+          onChange={(e) => this.validateText(e)}
+          placeholder={this.props.placeholder || 'Тема сообщения'}
+          className={styles.input}
+          style={{
+            marginTop: this.props.marginTop
+          }}
         />
 
         {
           !this.state.subject.valid && this.state.subject.touched
-            ? <span className={styles.feedback__error}>{'Введите верное значение'}</span>
+            ? <span className={styles.error}>{'Введите верное значение'}</span>
             : null
         }
       </div>
+    }
+    else if (inputType === 'number') {
+      content =
+          <div className={styles.wrapper}>
+            <input
+                type='number'
+                name={this.props.name}
+                value={this.props.value}
+                onChange={(e) => this.validateNumber(e)}
+                placeholder={this.props.placeholder || ''}
+                className={styles.input}
+            />
+        
+            {
+              !this.state.number.valid && this.state.number.touched
+                  ? <span className={styles.error}>{`Введите значение от ${this.props.minNumber} до ${this.props.maxNumber}`}</span>
+                  : null
+            }
+          </div>
     }
 
 

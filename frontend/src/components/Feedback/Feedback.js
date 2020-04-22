@@ -7,6 +7,8 @@ import Email from '../UI/Email/Email';
 import Textarea from '../UI/Textarea/Textarea';
 
 const initialState = {
+  submitted: false,
+  error: false,
   isFormValid: false,
   errorsCount: 5,
   username: '',
@@ -91,70 +93,94 @@ export default class Feedback extends Component {
   submitHandler = (e) => {
     e.preventDefault();
     if(!this.state.isFormValid) {
-      console.log('ERROR FORM!')
+      this.setState({
+        error: true
+      })
     } else {
-      console.log(this.state)
-      this.setState(initialState)
+      this.setState({...initialState}, () => {
+        this.setState({
+          error: false,
+          submitted: true
+        })
+      })
+      
     }
+  
+   
   }
 
   render() {
 
-
-    return (
-      <div className={styles.feedback}>
-        <Container>
-          <Title>
-            <h2 className={styles.feedback__name}>Связаться</h2>
-          </Title>
-          <form id='form' onSubmit={this.submitHandler} action='get'>
-            <Row>
-              <Col sm={12} md={6}>
-                <Input
-                  nameType='username'
+    let content = null;
+    
+    if (this.state.submitted) {
+      content = <Container>
+        <Title>
+          <h2 className={styles.feedback__name}>Спасибо, форма отправлена!</h2>
+        </Title>
+      </Container>
+    }
+    
+    else {
+      content = <Container>
+        <Title>
+          <h2 className={styles.feedback__name}>Связаться</h2>
+        </Title>
+        <form id='form' onSubmit={this.submitHandler} action='get'>
+          <Row>
+            <Col sm={12} md={6}>
+              <Input
+                  inputType='username'
                   value={this.state.username}
                   onValid={this.onValid}
-                  onInvalid={this.onInvalid}              
-                />
-              </Col>
-              <Col sm={12} md={6}>
-                <Input
-                  nameType='lastname'
+                  onInvalid={this.onInvalid}
+              />
+            </Col>
+            <Col sm={12} md={6}>
+              <Input
+                  inputType='lastname'
                   value={this.state.lastname}
                   onValid={this.onValid}
                   onInvalid={this.onInvalid}
-                />
-              </Col>
-              <Col sm={12} md={6}>
-                <Email
+              />
+            </Col>
+            <Col sm={12} md={6}>
+              <Email
                   value={this.state.email}
                   onValid={this.onValid}
                   onInvalid={this.onInvalid}
-                />
-              </Col>
-              <Col sm={12} md={6}>
-                <Input
-                  nameType='subject'
+              />
+            </Col>
+            <Col sm={12} md={6}>
+              <Input
+                  inputType='subject'
                   value={this.state.subject}
                   onValid={this.onValid}
                   onInvalid={this.onInvalid}
-                />
-              </Col>
-              <Col lg={12}>
-                <Textarea
+                  marginTop={'30px'}
+              />
+            </Col>
+            <Col lg={12}>
+              <Textarea
                   value={this.state.textarea}
                   onValid={this.onValid}
                   onInvalid={this.onInvalid}
-                />
-              </Col>
-              <Col lg={12}>
-                <button className={styles.feedback__button}>
-                  Отправить
-                </button>
-              </Col>
-            </Row>
-          </form>
-        </Container>
+              />
+            </Col>
+            <Col lg={12}>
+              <button className={styles.feedback__button}>
+                Отправить
+              </button>
+            </Col>
+            {this.state.error && <p className={styles.feedback__error}>Данные заполнены некорректно, пожалуйста, проверьте перед отправкой формы</p>}
+          </Row>
+        </form>
+      </Container>
+    }
+
+    return (
+      <div className={styles.feedback}>
+        {content}
       </div>
     )
 

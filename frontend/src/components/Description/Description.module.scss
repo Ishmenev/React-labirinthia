@@ -1,10 +1,10 @@
 @import '../../variables.scss';
 
-.indicators {
-  padding-top: 30px;
+.description {
+  padding-bottom: 70px;
 }
 
-.indicators__name {
+.description__name {
   text-align: left;
   color: $yellow;
   text-transform: none;
@@ -18,7 +18,7 @@
   }
 }
 
-.indicators__display {
+.description__display {
   text-transform: none;
   color: $yellow;
   font-size: 40px;
@@ -30,7 +30,7 @@
   }
 }
 
-.indicators__description {
+.description__description {
   color: $white;
   font-size: 20px;
   line-height: 27px;
@@ -41,7 +41,7 @@
   }
 }
 
-.indicators__measure {
+.description__measure {
   font-weight: 300;
 }
 

@@ -10,7 +10,7 @@ const Account = () => {
     <React.Fragment>
       <Intro introType={'local'} label='Кабинет'/>
       <User />
-      <Characters />
+      {/*<Characters />*/}
       <Wins />
     </React.Fragment>
   )

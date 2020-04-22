@@ -41,7 +41,7 @@ router.post('/login/', async (req, res) => {
         console.dir(userData)
         userData = Object.assign(userData, updatedData);
         
-        jwt.sign(userData, 'secret', { expiresIn: '25s' }, (error, token) => {
+        jwt.sign(userData, 'secret', { expiresIn: '2d' }, (error, token) => {
             res.json({
                 status: true,
                 userData,

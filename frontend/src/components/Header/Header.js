@@ -123,8 +123,8 @@ export default class Header extends Component {
                   <li>
                     <NavLink className={styles.navbar__option} 
                       activeClassName={styles.navbar__option_active} 
-                      to='/games/'>
-                        Играть
+                      to='/games/all/'>
+                        Все уровни
                     </NavLink>
                   </li>
                   <li>
