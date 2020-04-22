@@ -19,9 +19,9 @@ class User extends Component {
             <h2 className={styles.user__name}>Данные пользователя</h2>
           </Title>
           <Row>
-            <Col sm={12} md={3}>
-              <span className={styles.user__photo}></span>
-            </Col>
+            {/*<Col sm={12} md={3}>*/}
+            {/*  <span className={styles.user__photo}></span>*/}
+            {/*</Col>*/}
             <Col sm={12} md={9}>
               <ul className={styles.user__info}>
                 <li className={styles.user__firstname}>Имя: <span className={styles.user__text}>{data.firstName}</span></li>
