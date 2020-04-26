@@ -60,10 +60,12 @@
   width: 199px;
   height: 199px;
   border-radius: 50%;
-  background-image: url('./img/user-photo.jpg');
+  background-image: url('./img/ninja.png');
   background-position: center 0;
   background-repeat: no-repeat;
   background-size: cover;
+  position: relative;
+  top: -15px;
 }
 
 .user__info {
