@@ -19,9 +19,9 @@ class User extends Component {
             <h2 className={styles.user__name}>Данные пользователя</h2>
           </Title>
           <Row>
-            {/*<Col sm={12} md={3}>*/}
-            {/*  <span className={styles.user__photo}></span>*/}
-            {/*</Col>*/}
+            <Col sm={12} md={3}>
+              <span className={styles.user__photo}></span>
+            </Col>
             <Col sm={12} md={7}>
               <ul className={styles.user__info}>
                 <li className={styles.user__firstname}>Имя: <span className={styles.user__text}>{data.firstName}</span></li>
@@ -29,7 +29,7 @@ class User extends Component {
               </ul>
               
             </Col>
-            <Col sm={12} md={3}>
+            <Col sm={12} md={2}>
               <Button domType={'button'} onClick={() => {
                 window.localStorage.removeItem('token')
                 window.location = window.location.origin
