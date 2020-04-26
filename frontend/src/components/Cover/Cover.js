@@ -16,15 +16,17 @@ class Cover extends React.Component {
                 <p className={styles.cover__description}>Вес файла не должен превышать <span
                     className={styles.cover__measure}>2мб</span>, <br/>допустимые форматы изображений - <span
                     className={styles.cover__measure}>.jps, .png.</span></p>
-                <Input inputType={'subject'}
-                       placeholder={'Ссылка на изображение'}
-                       value={imageLink}
-                       name={'imageLink'}
-                       minLength={5}
-                       maxLength={500}
-                       onValid={this.props.changeLevelData}
-                       onInvalid={() => {}}
-                />
+                <div className={styles.cover__input}>
+                    <Input inputType={'subject'}
+                           placeholder={'Ссылка на изображение'}
+                           value={imageLink}
+                           name={'imageLink'}
+                           minLength={5}
+                           maxLength={500}
+                           onValid={this.props.changeLevelData}
+                           onInvalid={() => {}}
+                    />
+                </div>
                 <Title>
                     <h2 className={styles.cover__start}>Создать уровнь</h2>
                 </Title>
