@@ -11,7 +11,7 @@ class Creator extends Component {
                 {
                     x: 1,
                     y: 1,
-                    type: "wall",
+                    type: null,
                     object: null,
                     passable: false
                 },
@@ -19,7 +19,7 @@ class Creator extends Component {
                 {
                     x: 2,
                     y: 1,
-                    type: "wall",
+                    type: null,
                     object: null,
                     passable: false
                 },
@@ -27,7 +27,7 @@ class Creator extends Component {
                 {
                     x: 3,
                     y: 1,
-                    type: "wall",
+                    type: null,
                     object: null,
                     passable: false
                 },
@@ -35,7 +35,7 @@ class Creator extends Component {
                 {
                     x: 4,
                     y: 1,
-                    type: "wall",
+                    type: null,
                     object: null,
                     passable: false
                 },
@@ -43,7 +43,7 @@ class Creator extends Component {
                 {
                     x: 5,
                     y: 1,
-                    type: "wall",
+                    type: null,
                     object: null,
                     passable: false
                 },
@@ -51,7 +51,7 @@ class Creator extends Component {
                 {
                     x: 6,
                     y: 1,
-                    type: "wall",
+                    type: null,
                     object: null,
                     passable: false
                 },
@@ -59,7 +59,7 @@ class Creator extends Component {
                 {
                     x: 7,
                     y: 1,
-                    type: "wall",
+                    type: null,
                     object: null,
                     passable: false
                 },
@@ -67,7 +67,7 @@ class Creator extends Component {
                 {
                     x: 8,
                     y: 1,
-                    type: "wall",
+                    type: null,
                     object: null,
                     passable: false
                 },
@@ -75,7 +75,7 @@ class Creator extends Component {
                 {
                     x: 9,
                     y: 1,
-                    type: "wall",
+                    type: null,
                     object: null,
                     passable: false
                 },
@@ -83,7 +83,7 @@ class Creator extends Component {
                 {
                     x: 10,
                     y: 1,
-                    type: "wall",
+                    type: null,
                     object: null,
                     passable: false
                 },
@@ -91,7 +91,7 @@ class Creator extends Component {
                 {
                     x: 11,
                     y: 1,
-                    type: "wall",
+                    type: null,
                     object: null,
                     passable: false
                 },
@@ -99,7 +99,7 @@ class Creator extends Component {
                 {
                     x: 12,
                     y: 1,
-                    type: "wall",
+                    type: null,
                     object: null,
                     passable: false
                 },
@@ -107,7 +107,7 @@ class Creator extends Component {
                 {
                     x: 13,
                     y: 1,
-                    type: "wall",
+                    type: null,
                     object: null,
                     passable: false
                 },
@@ -115,7 +115,7 @@ class Creator extends Component {
                 {
                     x: 14,
                     y: 1,
-                    type: "wall",
+                    type: null,
                     object: null,
                     passable: false
                 },
@@ -123,7 +123,7 @@ class Creator extends Component {
                 {
                     x: 15,
                     y: 1,
-                    type: "wall",
+                    type: null,
                     object: null,
                     passable: false
                 },
@@ -131,7 +131,7 @@ class Creator extends Component {
                 {
                     x: 16,
                     y: 1,
-                    type: "wall",
+                    type: null,
                     object: null,
                     passable: false
                 },
@@ -139,7 +139,7 @@ class Creator extends Component {
                 {
                     x: 17,
                     y: 1,
-                    type: "wall",
+                    type: null,
                     object: null,
                     passable: false
                 },
@@ -147,7 +147,7 @@ class Creator extends Component {
                 {
                     x: 18,
                     y: 1,
-                    type: "wall",
+                    type: null,
                     object: null,
                     passable: false
                 },
@@ -155,7 +155,7 @@ class Creator extends Component {
                 {
                     x: 19,
                     y: 1,
-                    type: "wall",
+                    type: null,
                     object: null,
                     passable: false
                 },
@@ -163,22 +163,16 @@ class Creator extends Component {
                 {
                     x: 20,
                     y: 1,
-                    type: "wall",
+                    type: null,
                     object: null,
                     passable: false
                 },
-
-
-
-
-
-
-
+                
 
                 {
                     x: 1,
                     y: 2,
-                    type: "wall",
+                    type: null,
                     object: null,
                     passable: false
                 },
@@ -186,7 +180,7 @@ class Creator extends Component {
                 {
                     x: 2,
                     y: 2,
-                    type: "tree",
+                    type: null,
                     object: null,
                     passable: false
                 },
@@ -194,7 +188,7 @@ class Creator extends Component {
                 {
                     x: 3,
                     y: 2,
-                    type: "flower",
+                    type: null,
                     object: null,
                     passable: true
                 },
@@ -210,7 +204,7 @@ class Creator extends Component {
                 {
                     x: 5,
                     y: 2,
-                    type: "wall",
+                    type: null,
                     object: null,
                     passable: false
                 },
@@ -218,7 +212,7 @@ class Creator extends Component {
                 {
                     x: 6,
                     y: 2,
-                    type: "tree",
+                    type: null,
                     object: null,
                     passable: false
                 },
@@ -226,7 +220,7 @@ class Creator extends Component {
                 {
                     x: 7,
                     y: 2,
-                    type: "tree",
+                    type: null,
                     object: null,
                     passable: false
                 },
@@ -234,7 +228,7 @@ class Creator extends Component {
                 {
                     x: 8,
                     y: 2,
-                    type: "wall",
+                    type: null,
                     object: null,
                     passable: false
                 },
@@ -258,7 +252,7 @@ class Creator extends Component {
                 {
                     x: 11,
                     y: 2,
-                    type: "wall",
+                    type: null,
                     object: null,
                     passable: false
                 },
@@ -274,7 +268,7 @@ class Creator extends Component {
                 {
                     x: 13,
                     y: 2,
-                    type: "flower",
+                    type: null,
                     object: null,
                     passable: true
                 },
@@ -282,7 +276,7 @@ class Creator extends Component {
                 {
                     x: 14,
                     y: 2,
-                    type: "box",
+                    type: null,
                     object: null,
                     passable: false
                 },
@@ -290,7 +284,7 @@ class Creator extends Component {
                 {
                     x: 15,
                     y: 2,
-                    type: "wall",
+                    type: null,
                     object: null,
                     passable: false
                 },
@@ -314,7 +308,7 @@ class Creator extends Component {
                 {
                     x: 18,
                     y: 2,
-                    type: "tree",
+                    type: null,
                     object: null,
                     passable: false
                 },
@@ -330,7 +324,7 @@ class Creator extends Component {
                 {
                     x: 20,
                     y: 2,
-                    type: "wall",
+                    type: null,
                     object: null,
                     passable: false
                 },
@@ -343,7 +337,7 @@ class Creator extends Component {
                 {
                     x: 1,
                     y: 3,
-                    type: "wall",
+                    type: null,
                     object: null,
                     passable: false
                 },
@@ -495,7 +489,7 @@ class Creator extends Component {
                 {
                     x: 20,
                     y: 3,
-                    type: "wall",
+                    type: null,
                     object: null,
                     passable: false
                 },
@@ -512,7 +506,7 @@ class Creator extends Component {
                 {
                     x: 1,
                     y: 4,
-                    type: "wall",
+                    type: null,
                     object: null,
                     passable: false
                 },
@@ -664,7 +658,7 @@ class Creator extends Component {
                 {
                     x: 20,
                     y: 4,
-                    type: "wall",
+                    type: null,
                     object: null,
                     passable: false
                 },
@@ -679,7 +673,7 @@ class Creator extends Component {
                 {
                     x: 1,
                     y: 5,
-                    type: "wall",
+                    type: null,
                     object: null,
                     passable: false
                 },
@@ -831,7 +825,7 @@ class Creator extends Component {
                 {
                     x: 20,
                     y: 5,
-                    type: "wall",
+                    type: null,
                     object: null,
                     passable: false
                 },
@@ -849,7 +843,7 @@ class Creator extends Component {
                 {
                     x: 1,
                     y: 6,
-                    type: "wall",
+                    type: null,
                     object: null,
                     passable: false
                 },
@@ -1001,7 +995,7 @@ class Creator extends Component {
                 {
                     x: 20,
                     y: 6,
-                    type: "wall",
+                    type: null,
                     object: null,
                     passable: false
                 },
@@ -1691,8 +1685,8 @@ class Creator extends Component {
                 positionY: 5
             },
             levelSize: {
-                width: 20,
-                height: 10,
+                width: 1,
+                height: 1,
             },
             checkedElemParams: {
                 type: "ничего",
@@ -1700,32 +1694,31 @@ class Creator extends Component {
                 passable: true
             }
         };
-
-        this.setLevelSize = this.setLevelSize.bind(this)
     }
 
-    setLevelSize(e) {
-        const type = e.target.dataset.type;
-        const value = +e.target.value;
-
+    
+    componentDidMount() {
+        let {width, height} = this.props.data;
+        width = parseInt(width);
+        height = parseInt(height);
         this.setState({
             levelSize: {
-                ...this.state.levelSize,
-                [type]: value
+                width,
+                height
             }
-        }, function () {
+        }, () => {
             this.generateLevel()
-        })
+        });
     }
-
+    
     generateLevel() {
         const {width, height} = this.state.levelSize;
         let newLevel = [];
 
-        let posY = 0;
+        let posY = 1;
         let posX = 0;
 
-        for (let i = 0; i  < width * (height + 1); i++) {
+        for (let i = 0; i  < width * height; i++) {
             if (posX >= width) {
                 posX = 1;
                 posY++;

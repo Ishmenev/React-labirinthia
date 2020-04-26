@@ -7,19 +7,10 @@ import Button from '../UI/Button/Button';
 
 class Indicators extends React.Component {
     
-    state = {
-        height: 10,
-        width: 10
-    };
-    
-    changeSize = (paramName, value) => {
-        this.setState({
-            [paramName]: value
-        })
-    };
+  
     
     render() {
-        const { height, width } = this.state;
+        const { height, width } = this.props.levelData;
         
         return (
             <div className={styles.indicators}>
@@ -39,7 +30,7 @@ class Indicators extends React.Component {
                                name={'height'}
                                minNumber={1}
                                maxNumber={30}
-                               onValid={this.changeSize}
+                               onValid={this.props.changeLevelData}
                                onInvalid={() => {}}
                         />
                     </Col>
@@ -58,7 +49,7 @@ class Indicators extends React.Component {
                             name={'width'}
                             minNumber={1}
                             maxNumber={30}
-                            onValid={this.changeSize}
+                            onValid={this.props.changeLevelData}
                             onInvalid={() => {}}
                         />
                     </Col>

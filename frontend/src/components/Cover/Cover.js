@@ -5,18 +5,9 @@ import styles from './Cover.module.scss';
 import Input from "../UI/Input/Input";
 
 class Cover extends React.Component {
-    
-    state = {
-        imageLink: '',
-    };
-    
-    changeImageLink = (paramName, value) => {
-        this.setState({
-            [paramName]: value
-        })
-    };
-    
+
     render() {
+        const {imageLink} = this.props.levelData;
         return (
             <div className={styles.cover}>
                 <Title>
@@ -27,11 +18,11 @@ class Cover extends React.Component {
                     className={styles.cover__measure}>.jps, .png.</span></p>
                 <Input inputType={'subject'}
                        placeholder={'Ссылка на изображение'}
-                       value={this.state.imageLink}
+                       value={imageLink}
                        name={'imageLink'}
                        minLength={5}
                        maxLength={500}
-                       onValid={this.changeImageLink}
+                       onValid={this.props.changeLevelData}
                        onInvalid={() => {}}
                 />
                 <Title>

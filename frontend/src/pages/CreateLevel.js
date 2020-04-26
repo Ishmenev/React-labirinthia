@@ -8,12 +8,29 @@ import {Container} from 'reactstrap';
 
 class CreateLevel extends React.Component {
     state = {
-        step: 'first'
+        step: 'first',
+        levelData: {
+            width: 10,
+            height: 10,
+            title: '',
+            description: '',
+            image: ''
+        }
     };
     
     changeStep = (newStep) => {
         this.setState({
             step: newStep
+        })
+    };
+    
+    changeLevelData = (param, value) => {
+        this.setState({
+            levelData: {
+                ...this.state.levelData,
+                [param]: value
+            }
+            
         })
     };
     
@@ -23,15 +40,15 @@ class CreateLevel extends React.Component {
         
         if (this.state.step === 'first') {
             content = <React.Fragment>
-                <Indicators/>
-                <Description/>
-                <Cover changeStep={this.changeStep}/>
+                <Indicators changeLevelData={this.changeLevelData} levelData={this.state.levelData}/>
+                <Description changeLevelData={this.changeLevelData} levelData={this.state.levelData}/>
+                <Cover changeLevelData={this.changeLevelData} levelData={this.state.levelData} changeStep={this.changeStep}/>
             </React.Fragment>
         }
         
         else if (this.state.step === 'second') {
             content = <React.Fragment>
-                <Objects/>
+                <Objects levelData={this.state.levelData}/>
             </React.Fragment>
         }
         

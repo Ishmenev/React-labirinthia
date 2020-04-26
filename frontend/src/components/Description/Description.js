@@ -5,24 +5,10 @@ import styles from './Description.module.scss';
 import Input from "../UI/Input/Input";
 
 export default class Description extends Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            title: '',
-            descr: ''
-        }
-    }
-    
-    changeText = (paramName, value) => {
-        this.setState({
-            [paramName]: value
-        })
-    };
-    
-    
+
 
     render() {
-        const {title, descr} = this.state;
+        const {title, descr} = this.props.levelData;
 
         return (
             <div className={styles.description}>
@@ -42,7 +28,7 @@ export default class Description extends Component {
                             name={'title'}
                             minLength={5}
                             maxLength={30}
-                            onValid={this.changeText}
+                            onValid={this.props.changeLevelData}
                             onInvalid={() => {}}
                         />
                     </Col>
@@ -60,7 +46,7 @@ export default class Description extends Component {
                             name={'descr'}
                             minLength={15}
                             maxLength={130}
-                            onValid={this.changeText}
+                            onValid={this.props.changeLevelData}
                             onInvalid={() => {}}
                         />
                     </Col>
