@@ -36,7 +36,7 @@ export default class Description extends Component {
                 <Row>
                     <Col md={4}>
                         <p className={styles.description__description}>Описание уровня<br/><span
-                            className={styles.description__measure}> от 15 до 130 символов:</span></p>
+                            className={styles.description__measure}> от 15 до 50 символов:</span></p>
                     </Col>
                     <Col md={4}>
                         <Input
@@ -45,7 +45,7 @@ export default class Description extends Component {
                             value={descr}
                             name={'descr'}
                             minLength={15}
-                            maxLength={130}
+                            maxLength={50}
                             onValid={this.props.changeLevelData}
                             onInvalid={() => {}}
                         />
