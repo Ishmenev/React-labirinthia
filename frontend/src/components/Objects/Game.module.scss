@@ -178,10 +178,13 @@
 }
 
 .creator_title {
+  display: block;
   color: $white;
   font-size: 20px;
   line-height: 27px;
-  padding-bottom: 30px;
+  font-weight: 700;
+  margin-top: 30px;
+  padding-bottom: 15px;
 }
 
 .creator_inputs {
@@ -194,7 +197,7 @@
 }
 
 .creator_elements {
-  display: flex;
+
   margin-bottom: 20px;
 }
 
@@ -204,6 +207,7 @@
   justify-content: flex-start;
   align-items: center;
   list-style: none;
+  padding-left: 0;
 
   li {
     margin-right: 30px;

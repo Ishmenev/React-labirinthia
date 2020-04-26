@@ -1740,12 +1740,13 @@ class Creator extends Component {
         })
     }
 
-    setActiveType(type, object, passable) {
+    setActiveType(type, object, passable, name) {
         this.setState({
             checkedElemParams: {
-                type: type,
-                object: object,
-                passable: passable
+                type,
+                object,
+                passable,
+                name
             }
         })
     }
@@ -1815,81 +1816,81 @@ class Creator extends Component {
         let content = (
             <div>
                 <div className={styles.creator_elements}>
-                    <h2 className={styles.creator_title}>Тип поля:</h2>
+                    <span className={styles.creator_title}>Тип поля:</span>
                     <ul className={styles.creator_elements_list}>
                         <li>
                             <button
                                 className={styles.wall}
-                                onClick={this.setActiveType.bind(this, "wall", null, false)}
+                                onClick={this.setActiveType.bind(this, "wall", null, false, 'стена')}
                             />
                         </li>
                 
                         <li>
                             <button
                                 className={styles.tree}
-                                onClick={this.setActiveType.bind(this, "tree", null, false)}
+                                onClick={this.setActiveType.bind(this, "tree", null, false, 'дерево')}
                             />
                         </li>
                 
                         <li>
                             <button
                                 className={styles.flower}
-                                onClick={this.setActiveType.bind(this, "flower", null, true)}
+                                onClick={this.setActiveType.bind(this, "flower", null, true, 'цветок')}
                             />
                         </li>
                 
                         <li>
                             <button
                                 className={styles.sand}
-                                onClick={this.setActiveType.bind(this, "sand", null, true)}
+                                onClick={this.setActiveType.bind(this, "sand", null, true, 'песок')}
                             />
                         </li>
                 
                         <li>
                             <button
                                 className={styles.river}
-                                onClick={this.setActiveType.bind(this, "river", null, false)}
+                                onClick={this.setActiveType.bind(this, "river", null, false, 'река')}
                             />
                         </li>
                 
                         <li>
                             <button
                                 className={styles.door}
-                                onClick={this.setActiveType.bind(this, "door", null, false)}
+                                onClick={this.setActiveType.bind(this, "door", null, false, 'дверь')}
                             />
                         </li>
                 
                         <li>
                             <button
                                 className={styles.box}
-                                onClick={this.setActiveType.bind(this, "box", null, false)}
+                                onClick={this.setActiveType.bind(this, "box", null, false, 'коробка')}
                             />
                         </li>
                 
                         <li>
                             <button
                                 className={styles.exit}
-                                onClick={this.setActiveType.bind(this, "exit", null, true)}
+                                onClick={this.setActiveType.bind(this, "exit", null, true, 'выход')}
                             />
                         </li>
                         <li>
                             <button
                                 className={styles.field}
-                                onClick={this.setActiveType.bind(this, null, null, true)}
+                                onClick={this.setActiveType.bind(this, null, null, true, 'ничего')}
                             />
                         </li>
                     </ul>
-                    <h2 className={styles.creator_title}>Объекты:</h2>
+                    <span className={styles.creator_title}>Объекты:</span>
                     <ul className={styles.creator_elements_list}>
                         <li>
                             <button
                                 data-type="keys"
                                 className={styles.keys}
-                                onClick={this.setActiveType.bind(this, null, "keys", true)}
+                                onClick={this.setActiveType.bind(this, null, "keys", true, 'ключ')}
                             ></button>
                         </li>
                     </ul>
-                    <h2 className={styles.creator_title}>Выбрано: {checkedElemParams.type}</h2>
+                    <span className={styles.creator_title}>Выбрано: <span style={{'color': '#B1F879'}}>{checkedElemParams.name}</span></span>
                 </div>
         
                 <div

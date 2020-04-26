@@ -11,7 +11,6 @@ const Objects = ({levelData}) => {
             <Title>
                 <h2 className={styles.objects__name}>Объекты</h2>
             </Title>
-           
             <Creator data={levelData}/>
             <div className={styles.objects__save}>
                 <Button domType={'button'}>Сохранить</Button>
