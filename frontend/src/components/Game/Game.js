@@ -103,9 +103,15 @@ class Game extends Component {
             })
         }
 
-        // else if (fieldSpecialType === "aboutGate") {
-        //     this.props.history.push('/about')
-        // }
+        if (fieldSpecialType === "exit") {
+            this.props.gameSaver({
+                player: {
+                    positionX: nextFieldX,
+                    positionY: nextFieldY,
+                }
+            })
+            alert('Вы выиграли!')
+        }
         //
         // else if (fieldSpecialType === "portfolioGate") {
         //     this.props.history.push('/portfolio')
