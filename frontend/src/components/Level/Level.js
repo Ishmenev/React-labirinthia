@@ -14,7 +14,7 @@ const Level = ({number, description}) => {
         <h3 className={styles.title}>Вступление</h3>
         <span className={styles.number}>Уровень: {number}</span>
         <p className={styles.description}>{description}</p>
-        <Button domType={'link'} href={'/'}>Начать</Button>
+        <Button domType={'link'} href={'/play/' + number}>Начать</Button>
       </div>
     </li>
   )

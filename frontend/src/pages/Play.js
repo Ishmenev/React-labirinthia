@@ -1,13 +1,13 @@
 import React from 'react';
 import Intro from '../components/Intro/Intro';
 
-const Start = () => {
+const Play = () => {
 
   return (
     <React.Fragment>
-      <Intro introType={'local'} label='Игра началась'/>
+      <Intro introType={'local'} label='Игра началась!'/>
     </React.Fragment>
   )
 }
 
-export default Start;
+export default Play;

@@ -4,12 +4,12 @@ import Footer from './components/Footer/Footer';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import GamesContainer from './containers/GamesContainer';
 import AccountContainer from './containers/AccountContainer';
-import Start from './pages/Start';
 import ProtectedPage from './pages/ProtectedPage';
 import Page404 from './pages/Page404';
 import LoginError from './pages/LoginError';
 import CreateLevel from './containers/CreateContainer';
 import MainContainer from './containers/MainContainer';
+import PlayContainer from './containers/PlayContainer';
 import { connect } from 'react-redux';
 import './bootstrap.min.css';
 import './style.css';
@@ -45,7 +45,7 @@ class App extends Component {
                   exact path='/creativity/'
                   data={this.props}
                   component={CreateLevel} />
-                <Route path='/start/' component={Start}/>
+                <Route path='/play/:level' component={PlayContainer}/>
                 <Route path='/error/' component={LoginError}/>
                 <Route component={Page404}/>
               </Switch>
