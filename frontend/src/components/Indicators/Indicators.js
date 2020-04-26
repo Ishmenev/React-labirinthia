@@ -39,7 +39,7 @@ class Indicators extends React.Component {
                 <Row>
                     <Col md={4}>
                         <p className={styles.indicators__description}>Ширина уровня,<br/><span
-                            className={styles.indicators__measure}> в количестве клеток, от 1 до 30:</span></p>
+                            className={styles.indicators__measure}> в количестве клеток, от 1 до 27:</span></p>
                     </Col>
                     <Col md={4}>
                         <Input
@@ -48,7 +48,7 @@ class Indicators extends React.Component {
                             value={width}
                             name={'width'}
                             minNumber={1}
-                            maxNumber={30}
+                            maxNumber={27}
                             onValid={this.props.changeLevelData}
                             onInvalid={() => {}}
                         />
