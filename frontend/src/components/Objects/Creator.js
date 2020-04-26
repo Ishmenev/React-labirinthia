@@ -1681,8 +1681,8 @@ class Creator extends Component {
                 },
             ],
             player: {
-                positionX: 5,
-                positionY: 5
+                positionX: null,
+                positionY: null
             },
             levelSize: {
                 width: 1,
@@ -1755,25 +1755,39 @@ class Creator extends Component {
         const posX = +e.target.dataset.x;
         const posY = +e.target.dataset.y;
         const {checkedElemParams: {type, object, passable},  level} = this.state;
+        if (object === 'player') {
+            this.setState({
+                player: {
+                    positionX: posX,
+                    positionY: posY
+                },
+            })
+        }
+        
+        else {
+            let newLevel = this.state.level;
+            let changedFieldIndex = 0;
+    
+            level.forEach((item, index) => {
+                if (item.y === posY && item.x === posX) {
+                    changedFieldIndex= index;
+                }
+            });
+    
+            newLevel[changedFieldIndex].type = type;
+            newLevel[changedFieldIndex].object = object;
+            newLevel[changedFieldIndex].passable = passable;
+    
+            this.setState({
+                level: newLevel
+            });
+    
+            console.log(JSON.stringify(newLevel))
+    
+        }
 
-        let newLevel = this.state.level;
-        let changedFieldIndex = 0;
-
-        level.forEach((item, index) => {
-            if (item.y === posY && item.x === posX) {
-                changedFieldIndex= index;
-            }
-        });
-
-        newLevel[changedFieldIndex].type = type;
-        newLevel[changedFieldIndex].object = object;
-        newLevel[changedFieldIndex].passable = passable;
-
-        this.setState({
-            level: newLevel
-        });
-
-        console.log(JSON.stringify(newLevel))
+       
+        
     }
 
     render() {
@@ -1887,8 +1901,18 @@ class Creator extends Component {
                                 data-type="keys"
                                 className={styles.keys}
                                 onClick={this.setActiveType.bind(this, null, "keys", true, 'ключ')}
-                            ></button>
+                            />
                         </li>
+                        {!this.state.player.positionX &&
+                            <li>
+                                <button
+                                    data-type="player"
+                                    className={styles.player}
+                                    onClick={this.setActiveType.bind(this, null, "player", true, 'игрок')}
+                                />
+                            </li>
+                        }
+                        
                     </ul>
                     <span className={styles.creator_title}>Выбрано: <span style={{'color': '#B1F879'}}>{checkedElemParams.name}</span></span>
                 </div>
