@@ -1,22 +1,10 @@
 @import '../../../variables.scss';
 
 .auth {
-  position: fixed;
-  z-index: 20;
-  top: 150px;
-  width: 100%;
-
-}
-
-.auth__wrapper {
   position: relative;
-  width: 600px;
-  padding-top: 60px;
-  padding-bottom: 52px;
-  background-color: $white;
-  margin: 0 auto;
+  width: 100%;
   text-align: center;
-  box-sizing: border-box;
+
 }
 
 .auth__name {
@@ -68,8 +56,9 @@
   }
 }
 
-.auth__option_ok {
-  background-color: $ok;
+.auth__option_google {
+  background-color: $google;
+  border: 1px solid darken($google, 10%);
 
   &::before {
     content: "";
@@ -78,13 +67,24 @@
     left: 16px;
     width: 20px;
     height: 20px;
-    background-image: url('./img/ok.svg');
+    background-image: url('./img/google.svg');
     background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+  }
+
+  .auth__link {
+    color: darken($google, 80%);
+
+    &:hover {
+      color: darken($google, 50%);
+    }
   }
 }
 
 .auth__option_fb {
   background-color: $fb;
+
   &::before {
     content: "";
     position: absolute;
@@ -102,10 +102,12 @@
   padding-top: 10px;
   padding-bottom: 9px;
   text-transform: none;
-  font-weight: 300;
+  font-weight: normal;
   font-size: 16px;
   line-height: 21px;
   color: $white;
+  cursor: pointer;
+  transition: 0.3s;
 
   &:hover {
     text-decoration: none;
@@ -121,33 +123,32 @@
 .auth__close {
   position: absolute;
   border: none;
-	top: 9px;
-	right: 9px;
-	width: 21px;
-	height: 21px;
-	font-size: 0px;
-	cursor: pointer;
+  top: 9px;
+  right: 9px;
+  width: 21px;
+  height: 21px;
+  font-size: 0px;
+  cursor: pointer;
   background-color: transparent;
-  
+
   &::before,
   &::after {
     content: "";
     position: absolute;
     width: 24px;
     height: 2px;
-    background-color: $grey;  
+    background-color: $grey;
   }
 
   &::before {
     transform: rotate(45deg);
     right: -2px;
-    top: 8px;  
+    top: 8px;
   }
 
   &::after {
     transform: rotate(-45deg);
     right: -2px;
-    top: 8px;  
+    top: 8px;
   }
 }
-

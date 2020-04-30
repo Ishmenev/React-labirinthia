@@ -6,6 +6,9 @@ import { connect } from 'react-redux';
 import {loginUser} from '../../../actions/user';
 
 class Auth extends Component {
+  constructor(props) {
+    super(props);
+  }
   componentDidMount() {
     const ID = '228152851196-g7nir1ev5lfqs59ed5c0haerb0mdnp30.apps.googleusercontent.com'
     const _onInit = auth2 => {
@@ -42,7 +45,7 @@ class Auth extends Component {
         
       } else {
         this.props.onError()
-        this.props.onClose();
+        this.props.onCloseModal();
       }
     })
   }
@@ -66,6 +69,7 @@ class Auth extends Component {
       };
       
       this.props.loginUser(data);
+      this.props.closeModal();
       this.props.onRedirect();
       console.log('ID: ' + profile.getId()) // не посылайте подобную информацию напрямую, на ваш сервер!
 
@@ -74,10 +78,10 @@ class Auth extends Component {
 
   render() {
 
-    return createPortal(
+    return (
+      <>
       <div className={styles.auth}>
-        <div className={styles.auth__wrapper}>
-          <button onClick={this.props.onClose} className={styles.auth__close}></button>
+          {/* <button onClick={this.props.onClose} className={styles.auth__close}></button> */}
           <Title>
             <h2 className={styles.auth__name}>Авторизоваться</h2>
           </Title>
@@ -86,16 +90,15 @@ class Auth extends Component {
             <li className={`${styles.auth__option} ${styles.auth__option_vc}`}>
               <a className={`${styles.auth__link} ${styles.auth__link_vc}`} id={'login'} onClick={this.getDataFromVK} href='#'>Вконтакте</a>
             </li>
-            <li className={`${styles.auth__option} ${styles.auth__option_ok}`}>
-              <span className={`${styles.auth__link} ${styles.auth__link_ok}`} onClick={this.getDataFromGoogle}>Google</span>
+            <li className={`${styles.auth__option} ${styles.auth__option_google}`}>
+              <span className={`${styles.auth__link} ${styles.auth__link_google}`} onClick={this.getDataFromGoogle}>Google</span>
             </li>
             <li className={`${styles.auth__option} ${styles.auth__option_fb}`}>
               <a className={`${styles.auth__link} ${styles.auth__link_fb}`} href='#'>Facebook</a>
             </li>
           </ul>
-        </div>        
-      </div>,
-      document.getElementById('modal')
+      </div>
+      </>
     )  
   }
 }

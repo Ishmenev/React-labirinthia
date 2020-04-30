@@ -14,7 +14,9 @@ body {
   display: flex;
   flex-direction: column;
 }
-
+.open-modal{
+  overflow-y: hidden;
+}
 #root {
   min-height: 100%;
   flex: 1;

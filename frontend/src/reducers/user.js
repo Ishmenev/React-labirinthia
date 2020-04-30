@@ -5,7 +5,8 @@ const initialState = {
 };
 
 const user = (state = initialState, action) => {
-    
+    console.log(state);
+    console.log(action);
     switch (action.type) {
       
         case 'LOGIN_USER_SUCCESS':
@@ -44,6 +45,7 @@ const user = (state = initialState, action) => {
         default:
             return state
     }
+
 };
 
 export default user
