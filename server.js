@@ -7,6 +7,7 @@ const connectDB = require("./config/db");
 
 const main = require("./backend/routes/main");
 const user = require("./backend/routes/user");
+const level = require("./backend/routes/level");
 
 // Создаем приложение
 const app = express();
@@ -22,6 +23,9 @@ const port = process.env.PORT || config.get("defaultPort");
 app.use("/api/main", main);
 // Рутер пользователя
 app.use("/api/user", user);
+
+app.use("/api/level", level);
+
 
 // Статические ассеты в продакшене
 if (process.env.NODE_ENV === "production") {

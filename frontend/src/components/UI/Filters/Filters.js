@@ -15,29 +15,29 @@ const Filters = () => {
           <h2 className={styles.filters__display}>К сожалению, этот раздел доступен только с компьютера</h2>
         </Title>
         <Router>
-          {/*<div className={styles.filters__wrapper}>*/}
-          {/*  <NavLink*/}
-          {/*    to='/games/all/'*/}
-          {/*    className={styles.filters__link}*/}
-          {/*    activeClassName={styles.filters__link_active}*/}
-          {/*    >*/}
-          {/*    Все</NavLink>*/}
-          {/*  <NavLink*/}
-          {/*    to='/games/creative/'*/}
-          {/*    className={styles.filters__link}*/}
-          {/*    activeClassName={styles.filters__link_active}*/}
-          {/*    >*/}
-          {/*    Пользовательские</NavLink>*/}
-          {/*  <NavLink*/}
-          {/*    to='/games/narrative/'*/}
-          {/*    className={styles.filters__link}*/}
-          {/*    activeClassName={styles.filters__link_active}*/}
-          {/*    >*/}
-          {/*    Сюжетные</NavLink>*/}
-          {/*  <Redirect to='/games/all/'></Redirect>    */}
-          {/*</div>*/}
+          <div className={styles.filters__wrapper}>
+            <NavLink
+              to='/games/all/'
+              className={styles.filters__link}
+              activeClassName={styles.filters__link_active}
+              >
+              Все</NavLink>
+            <NavLink
+              to='/games/creative/'
+              className={styles.filters__link}
+              activeClassName={styles.filters__link_active}
+              >
+              Пользовательские</NavLink>
+            <NavLink
+              to='/games/narrative/'
+              className={styles.filters__link}
+              activeClassName={styles.filters__link_active}
+              >
+              Сюжетные</NavLink>
+            <Redirect to='/games/all/'></Redirect>
+          </div>
           <Switch>
-            {/*'/games/:filter?'*/}
+              {console.dir(store.getState())}
             <Route path='/games/:filter?' children={({match}) => {
               return <Options levels={store.getState().games.data.levels} filter={match.params}/>
             }}/>

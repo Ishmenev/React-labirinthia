@@ -6,6 +6,8 @@ import Cover from '../components/Cover/Cover';
 import Description from '../components/Description/Description';
 import {Container} from 'reactstrap';
 
+
+
 class CreateLevel extends React.Component {
     state = {
         step: 'first',
@@ -14,7 +16,8 @@ class CreateLevel extends React.Component {
             height: 10,
             title: '',
             description: '',
-            image: ''
+            image: '',
+            level: []
         }
     };
     
@@ -48,7 +51,7 @@ class CreateLevel extends React.Component {
         
         else if (this.state.step === 'second') {
             content = <React.Fragment>
-                <Objects levelData={this.state.levelData}/>
+                <Objects changeLevelData={this.changeLevelData} levelData={this.state.levelData}/>
             </React.Fragment>
         }
         

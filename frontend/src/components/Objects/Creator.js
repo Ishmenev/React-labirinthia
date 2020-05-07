@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 
 import styles from './Game.module.scss';
+import Button from "../UI/Button/Button";
 
 
 class Creator extends Component {
@@ -91,6 +92,11 @@ class Creator extends Component {
                     positionY: posY
                 },
             })
+    
+            this.props.changeLevelData('player', {
+                positionX: posX,
+                positionY: posY
+            })
         }
         
         else {
@@ -110,8 +116,8 @@ class Creator extends Component {
             this.setState({
                 level: newLevel
             });
-    
-            console.log(JSON.stringify(newLevel))
+            this.props.changeLevelData('level', newLevel)
+     
     
         }
 

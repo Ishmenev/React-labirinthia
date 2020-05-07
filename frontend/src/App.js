@@ -36,7 +36,7 @@ class App extends Component {
             <Route path='/' component={Header}/>
               <Switch>
                 <Route exact path='/' component={MainContainer}/>
-                <Route path='/games/' component={GamesContainer} />
+                <Route exact path='/games/:type' component={GamesContainer} />
                 <PrivateRoute 
                   exact path='/account/'
                   data={this.props}
@@ -45,7 +45,7 @@ class App extends Component {
                   exact path='/creativity/'
                   data={this.props}
                   component={CreateLevel} />
-                <Route path='/play/:level' component={PlayContainer}/>
+                <Route exact path='/play/:level' component={PlayContainer}/>
                 <Route path='/error/' component={LoginError}/>
                 <Route component={Page404}/>
               </Switch>

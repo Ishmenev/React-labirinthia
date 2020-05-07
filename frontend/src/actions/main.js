@@ -6,7 +6,7 @@ export const getMainData  = () => {
   
     try {
       const res = await axios.get("/api/main");
-      const data = res.data[0];
+      const data = res.data;
       dispatch(fetchingDataSuccess(data));
 
     

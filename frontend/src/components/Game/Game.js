@@ -152,7 +152,7 @@ class Game extends Component {
     }
 
     render() {
-        const {level, player, levelSize, inventory} = this.props.game;
+        const {level, player, width, height, inventory} = this.props.game;
         let elements = [];
 
         level.forEach((field, index) => {
@@ -174,9 +174,11 @@ class Game extends Component {
                 />
             )
         });
+        
+        
 
-        const levelWidth = levelSize.width * 40 + "px";
-        const levelHeight = levelSize.height * 40 + "px";
+        const levelWidth = width * 40 + "px";
+        const levelHeight = height * 40 + "px";
 
         let wrapperStyles  = {
             width: levelWidth,

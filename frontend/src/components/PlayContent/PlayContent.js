@@ -3,8 +3,10 @@ import Title from '../UI/Title/Title';
 import Game from '../Game/Game';
 import {Container, Row, Col} from 'reactstrap';
 import styles from './PlayContent.module.scss';
+import {connect} from "react-redux";
 
-export default class PlayContent extends Component {
+
+class PlayContent extends Component {
     constructor(props){
         super(props);
     }
@@ -18,13 +20,13 @@ export default class PlayContent extends Component {
                    <Row>
                        <Col md={12}>
                            <Title>
-                               <h2 className={styles.title}>Уровень 1: Вступление</h2>
+                               <h2 className={styles.title}>{this.props.game.title}</h2>
                            </Title>
                        </Col>
                    </Row>
                     <Row>
                         <Col md={7}>
-                            <p className={styles.description}>Супер пупер уровень нереально крутое интерактивное. Супер пупер уровень нереально крутое интерактивное описание.
+                            <p className={styles.description}>{this.props.game.description}
                             </p>
                         </Col>
                         <Col md={1}>
@@ -46,3 +48,13 @@ export default class PlayContent extends Component {
         );
     }
 }
+
+const mapStateToProps = (store) => {
+    return {
+        game: store.game
+    }
+};
+
+
+
+export default connect(mapStateToProps)(PlayContent)

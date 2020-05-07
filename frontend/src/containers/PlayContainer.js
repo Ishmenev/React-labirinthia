@@ -1,14 +1,29 @@
-import React from "react";
+import React, {Component} from "react";
+import { connect } from 'react-redux';
+import {getLevelData} from '../actions/level';
 import Play from "../pages/Play";
 
-const PlayContainer = () => {
+
+class PlayContainer extends Component {
+    
+    componentDidMount() {
+        this.props.getLevelData(this.props.match.params.level)
+    }
     
     
-    
-    return (
-        <Play/>
-    )
+    render() {
+        return (
+            <Play/>
+        )
+    }
 };
 
-export default PlayContainer
+const mapStateToProps = state => {
+    return {
+        game: state.game.data,
+     
+    }
+}
+
+export default connect(mapStateToProps, {getLevelData})(PlayContainer)
 

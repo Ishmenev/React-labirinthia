@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Main = require('../models/Main');
+const Level = require('../models/Level');
 const { check, validationResult } = require('express-validator/check')
 
 // @route POST api/main
@@ -28,8 +29,13 @@ router.get('/', async (req, res) => {
     
     try {
         const main = await Main.find();
+        const level = await Level.find();
+        const data = {
+            properties: main,
+            levels: level
+        };
+        res.json(data)
         
-        res.json(main)
     } catch(err) {
         console.error(err);
         res.status(500).send('Server error')

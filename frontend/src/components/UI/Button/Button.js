@@ -15,6 +15,10 @@ export default class Button extends Component {
         if (domType === 'link') {
             content = <Link className={styles.button} to={href}>{this.props.children}</Link>
         }
+    
+        else if (domType === 'a') {
+            content = <a className={styles.button} href={href}>{this.props.children}</a>
+        }
 
         else if (domType === 'button') {
             content = <button className={styles.button} onClick={this.props.onClick}>{this.props.children}</button>

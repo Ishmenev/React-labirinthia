@@ -23,12 +23,18 @@ export default class Options extends Component {
   }
 
   updateFilter(arr, params) {
-    return arr.filter((item) => {
-      if (params === 'all') {
-        return item;
-      } 
-      return item.type === params;
-    })
+    if (arr) {
+      return arr.filter((item) => {
+        if (params === 'all') {
+          return item;
+        }
+        return item.type === params;
+      })
+    }
+    
+    else {
+      return  []
+    }
   }
 
   render() {
@@ -37,13 +43,14 @@ export default class Options extends Component {
     const levels = this.props.levels;
     const {filter} = this.props.filter;
 
+
     let visibleLevels = this.updateFilter(levels, filter);
   
     const selectedLevels = visibleLevels.map((item) => {
       return (
         <Col key={item.id} md={6} lg={5} xl={4}>
           <div className={styles.options__item}>
-            <Level description={item.description}
+            <Level description={item.description} title={item.title} image={item.image}
               number={item.id} />
           </div>
         </Col>

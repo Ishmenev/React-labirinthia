@@ -20,7 +20,7 @@ class Cover extends React.Component {
                     <Input inputType={'subject'}
                            placeholder={'Ссылка на изображение'}
                            value={imageLink}
-                           name={'imageLink'}
+                           name={'image'}
                            minLength={5}
                            maxLength={500}
                            onValid={this.props.changeLevelData}

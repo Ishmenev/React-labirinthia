@@ -43,7 +43,7 @@ export default class Description extends Component {
                             inputType={'subject'}
                             placeholder={'Описание уровня'}
                             value={descr}
-                            name={'descr'}
+                            name={'description'}
                             minLength={15}
                             maxLength={50}
                             onValid={this.props.changeLevelData}
