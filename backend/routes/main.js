@@ -24,8 +24,6 @@ router.post('/', async (req, res) => {
     }
 });
 
-
-
 router.get('/', async (req, res) => {
     
     try {
@@ -43,11 +41,9 @@ router.get('/', async (req, res) => {
     }
 });
 
-module.exports = router;
-
-router.delete('/', async (req, res) => {
+router.delete('/:id', async (req, res) => {
     const id = req.params.id;
-    Main.remove(properties)
+    Level.remove({_id: id})
         .then(result => {
             res.status(200).json(result)
         })

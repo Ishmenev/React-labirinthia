@@ -76,7 +76,9 @@ export default class Options extends Component {
             {addLevels}
           </Row>
         </div>
-        
+        <div onClick={this.btnClicked} className={styles.options__button}>
+          <Button domType={'button'}>Еще уровни</Button>
+        </div>        
       </div>
     ) 
   }
