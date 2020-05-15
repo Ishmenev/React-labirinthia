@@ -47,8 +47,7 @@ class Auth extends Component {
     })
   }
   
-  getDataFromGoogle = () => {
-    
+  getDataFromGoogle = () => {    
     
     const auth2 = window.gapi.auth2.getAuthInstance()
     auth2.signIn().then(googleUser => {
@@ -66,7 +65,6 @@ class Auth extends Component {
       };
       
       this.props.loginUser(data);
-      this.props.onRedirect();
       console.log('ID: ' + profile.getId()) // не посылайте подобную информацию напрямую, на ваш сервер!
 
     })
@@ -87,7 +85,7 @@ class Auth extends Component {
               <a className={`${styles.auth__link} ${styles.auth__link_vc}`} id={'login'} onClick={this.getDataFromVK} href='#'>Вконтакте</a>
             </li>
             <li className={`${styles.auth__option} ${styles.auth__option_ok}`}>
-              <span className={`${styles.auth__link} ${styles.auth__link_ok}`} onClick={this.getDataFromGoogle}>Google</span>
+              <a className={`${styles.auth__link} ${styles.auth__link_ok}`} onClick={this.getDataFromGoogle}>Google</a>
             </li>
             <li className={`${styles.auth__option} ${styles.auth__option_fb}`}>
               <a className={`${styles.auth__link} ${styles.auth__link_fb}`} href='#'>Facebook</a>

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import styles from './Logout.module.scss';
 import Title from '../../UI/Title/Title';
+import Button from '../../UI/Button/Button';
 import {createPortal} from 'react-dom';
 
 const Logout = (props) => {
@@ -13,6 +14,12 @@ const Logout = (props) => {
           <h2 className={styles.logout__name}>Внимание!</h2>
           <p className={styles.logout__announce}>Вы уверены, что хотите выйти из своей учетной записи?</p>
         </Title>
+        <div>
+          <Button domType={'button'} onClick={() => {
+            window.localStorage.removeItem('token')
+            window.location = window.location.pathname
+          }}>Выйти</Button>
+        </div>
       </div>        
     </div>,
     document.getElementById('modal')

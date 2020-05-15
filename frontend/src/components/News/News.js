@@ -12,6 +12,7 @@ class News extends Component {
 
 
   render() {
+    console.log(this.props.news)
 
     const settings = {
       dots: true,
@@ -67,7 +68,7 @@ class News extends Component {
 
 const mapStateToProps = state => {
   return {
-      news: state.main.data.news,
+      news: state.main.data.properties,
       isFetching: state.main.isFetching
   }
 }

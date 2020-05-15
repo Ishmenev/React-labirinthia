@@ -16,8 +16,7 @@ import './style.css';
 import {checkAuth} from "./actions/user";
 
 const PrivateRoute = ({component: Component, data, path}) => {
-  const {isAuth, checkAuth} = data;
-  checkAuth();
+  const {isAuth} = data;
   
   return <Route path={path}
     render={props => {

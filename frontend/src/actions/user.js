@@ -67,7 +67,7 @@ function userLoginSuccess(response) {
 
 function userLoginFailed() {
     return {
-        type: 'LOGIN_USER_FAILED',
+        type: 'LOGIN_USER_FAILED'
     }
 }
 

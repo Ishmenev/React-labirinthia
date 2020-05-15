@@ -31,7 +31,7 @@ class LoaderContainer extends Component {
 
 const mapStateToProps = state => {
   return {
-    news: state.main.data.news,
+    news: state.main.data.properties,
     isFetching: state.main.isFetching,
     errorStatus: state.main.errorStatus
   }

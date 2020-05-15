@@ -1,10 +1,11 @@
 const initialState = {
     data: null,
-    isAuth: false,
+    isAuth: null,
     isFetching: false
 };
 
 const user = (state = initialState, action) => {
+    console.log(action.type)
     
     switch (action.type) {
       

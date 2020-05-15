@@ -12,8 +12,9 @@ router.post('/', async (req, res) => {
 
     try {
         const newMain = new Main({
-            properties: req.body.properties,
-            levels: req.body.levels
+            id: Date.now().toString(),
+            title: req.body.title,
+            text: req.body.text
         })
         const main = await newMain.save()
         res.json(main)
@@ -41,5 +42,22 @@ router.get('/', async (req, res) => {
         res.status(500).send('Server error')
     }
 });
+
+module.exports = router;
+
+router.delete('/', async (req, res) => {
+    const id = req.params.id;
+    Main.remove(properties)
+        .then(result => {
+            res.status(200).json(result)
+        })
+        .catch(err => {
+            console.log(err)
+            res.status(500).json({
+                error: err
+            })
+        })
+
+})
 
 module.exports = router;

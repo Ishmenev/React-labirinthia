@@ -27,10 +27,7 @@ function fetchingDataSuccess(data) {
 
   return {
     type: 'FETCHING_DATA_SUCCESS',
-    payload: data = {
-      news: data.properties,
-      levels: data.levels
-    }
+    payload: data
   }
 }
 

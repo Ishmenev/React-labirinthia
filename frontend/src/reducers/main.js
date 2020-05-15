@@ -1,6 +1,6 @@
 const initialState = {
   data: {
-    news: null,
+    properties: null,
     levels: null
   },
   isFetching: null,
