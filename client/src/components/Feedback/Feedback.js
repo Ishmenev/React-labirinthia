@@ -137,6 +137,7 @@ export default class Feedback extends Component {
                   nameType='subject'
                   value={this.state.subject}
                   onValid={this.onValid}
+                  placeholder='Тема'
                   onInvalid={this.onInvalid}
                 />
               </Col>
