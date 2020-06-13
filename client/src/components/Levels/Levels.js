@@ -5,6 +5,7 @@ import Button from '../UI/Button/Button';
 import Level from '../Level/Level';
 import LoaderContainer from '../../containers/LoaderContainer';
 import {connect} from 'react-redux'
+import { Link } from 'react-router-dom';
 import styles from './Levels.module.scss';
 
 class Levels extends Component {
@@ -73,7 +74,7 @@ class Levels extends Component {
               </Row>
             </ul>
             <p className={styles.levels__options}>Самые популярные уровни, больше уровней вы можете найти, кликнув по кнопке ниже</p>
-            <Button domType={'button'}>Кнопка</Button>
+            <Link className={styles.levels__link} to='/games/all'>Все уровни</Link>
           </Container>
         </div>
       </LoaderContainer>

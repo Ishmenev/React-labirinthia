@@ -53,3 +53,36 @@
     display: none;
   }
 }
+
+.levels__link {
+  display: inline-block;
+  color: $brown;
+  font-weight: 400;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding-top: 14px;
+  padding-bottom: 12px;
+  padding-left: 93px;
+  padding-right: 63px;
+  background-color: $green;
+  border: none;
+  position: relative;
+
+  &:hover {
+    text-decoration: none;
+    color: rgba(52, 53, 51, 0.8);
+  }
+
+  &::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 19px;
+    position: absolute;
+    left: 35px;
+    top: 15px;
+    background-image: url('./img/all-levels.svg');
+    background-repeat: no-repeat;
+  }  
+}
+

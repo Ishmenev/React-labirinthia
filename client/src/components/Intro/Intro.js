@@ -26,13 +26,13 @@ export default class Intro extends Component {
               <Col xs={6}>
                 <div className={styles.intro__choice}>
                   <p className={styles.intro__text}>Проходи уровни, получай призы и прочий lorem</p>
-                  <Link className={`${styles.intro__link} ${styles.intro__link_play}`} to='./games'>Играть</Link>
+                  <Link className={`${styles.intro__link} ${styles.intro__link_play}`} to='/play/1592012298927'>Играть</Link>
                 </div>
               </Col>
               <Col xs={6}>
                 <div className={styles.intro__choice}>
                   <p className={styles.intro__text}>Создай свой собственный уровень и нагни их всех!</p>
-                  <Link className={`${styles.intro__link} ${styles.intro__link_create}`} to='./creativity'>Создать</Link>
+                  <Link className={`${styles.intro__link} ${styles.intro__link_create}`} to='/creativity'>Создать</Link>
                 </div>
               </Col>
             </Row>

@@ -13,7 +13,8 @@ class Options extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      initStatus: false    }
+      initStatus: false
+    }
   }
 
   componentDidMount() {
@@ -45,7 +46,6 @@ class Options extends Component {
   }
 
   render() {
-
     let initStatus = this.state.initStatus;
     const levels = this.props.data.levels;
     const {filter} = this.props.filter;
@@ -67,7 +67,7 @@ class Options extends Component {
     })
 
     const shownLevels = selectedLevels.slice(0, 3);
-    const hiddenLevels = selectedLevels.slice(6)
+    const hiddenLevels = selectedLevels.slice(3)
     let addLevels = null;
 
     if (initStatus) {
