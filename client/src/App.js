@@ -11,6 +11,7 @@ import CreateLevel from './containers/CreateContainer';
 import MainContainer from './containers/MainContainer';
 import PlayContainer from './containers/PlayContainer';
 import { connect } from 'react-redux';
+import {getMainData} from './actions/main';
 import './bootstrap.min.css';
 import './style.css';
 
@@ -42,6 +43,9 @@ const PrivateRoute = ({component: Component, data, path}) => {
 
 
 class App extends Component {
+  componentDidMount() {
+    this.props.getMainData()
+  }
   
   render() {
 
@@ -77,7 +81,7 @@ const mapStateToProps = ({auth}) => {
   return {auth}
 }
 
-export default connect(mapStateToProps)(App)
+export default connect(mapStateToProps, {getMainData})(App)
 
 
 

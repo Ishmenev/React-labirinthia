@@ -12,7 +12,7 @@ module.exports = app => {
                 height: req.body.height,
                 description: req.body.description,
                 image: req.body.image,
-                type: 'creative',
+                type: 'narrative',
                 player: req.body.player,
                 level: req.body.level
             })

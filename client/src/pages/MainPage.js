@@ -11,7 +11,7 @@ const MainPage = () => {
     <React.Fragment>
       <Intro introType={'main'} label='Лабиринтия' />
       <Info/>
-      {/* <Levels/> */}
+      <Levels/>
       <News/>
       <Feedback/>
     </React.Fragment>

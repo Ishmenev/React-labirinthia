@@ -57,14 +57,16 @@ class Options extends Component {
       return (
         <Col key={item.id} md={6} lg={5} xl={4}>
           <div className={styles.options__item}>
-            <Level description={item.description} title={item.title} image={item.image}
+            <Level description={item.description} 
+              title={item.title} 
+              image={item.image}
               number={item.id} />
           </div>
         </Col>
       )
     })
 
-    const shownLevels = selectedLevels.slice(0, 6);
+    const shownLevels = selectedLevels.slice(0, 3);
     const hiddenLevels = selectedLevels.slice(6)
     let addLevels = null;
 

@@ -64,8 +64,8 @@ class News extends Component {
   }
 }
 
-const mapStateToProps = ({news: {isFetching, data}}) => {
-  return {isFetching, data}
+const mapStateToProps = ({news: {data}}) => {
+  return {data}
 }
 
 export default connect(mapStateToProps)(News)
