@@ -38,7 +38,7 @@ module.exports = app => {
 
   app.delete('/api/main/:id', async (req, res) => {
     const id = req.params.id;
-    Main.remove({id: id})
+    Level.remove({id: id})
       .then(result => {
         res.status(200).json(result)
       })
