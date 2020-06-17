@@ -50,6 +50,27 @@
     font-size: 18px;
     line-height: 24px;
   }
+
+  .info__link {
+    display: inline-block;
+    color: $brown;
+    font-weight: 400;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding-top: 14px;
+    padding-bottom: 12px;
+    padding-left: 45px;
+    padding-right: 45px;
+    background-color: $green;
+    border: none;
+    position: relative;
+  
+    &:hover {
+      text-decoration: none;
+      color: rgba(52, 53, 51, 0.8);
+    }
+  }
+  
   
   .info__wrapper {
     display: flex;
