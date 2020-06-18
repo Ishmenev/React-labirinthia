@@ -2,6 +2,10 @@
 
 .indicators {
   padding-top: 30px;
+
+  @media (max-width: $tablet-width) {
+    display: none;
+  }
 }
 
 .indicators__name {
@@ -12,10 +16,6 @@
   line-height: 55px;
   padding-top: 50px;
   padding-bottom: 30px;
-
-  @media (max-width: $tablet-width) {
-    display: none;
-  }
 }
 
 .indicators__display {
@@ -23,6 +23,8 @@
   color: $yellow;
   font-size: 40px;
   line-height: 45px;
+  padding-top: 60px;
+  padding-bottom: 60px;
   display: none;
 
   @media (max-width: $tablet-width) {

@@ -2,6 +2,10 @@
 
 .block {
   padding-bottom: 70px;
+
+  @media (max-width: $game-width) {
+    display: none;
+  }
 }
 
 .title {
