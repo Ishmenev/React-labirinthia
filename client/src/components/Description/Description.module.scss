@@ -2,6 +2,10 @@
 
 .description {
   padding-bottom: 70px;
+
+  @media (max-width: $tablet-width) {
+    display: none;
+  }
 }
 
 .description__name {

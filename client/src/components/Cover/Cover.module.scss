@@ -1,6 +1,7 @@
 @import '../../variables.scss';
 
 .cover {
+  padding-right: 250px;
   padding-bottom: 90px;
 
   @media (max-width: $tablet-width) {

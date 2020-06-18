@@ -14,7 +14,7 @@ export default class Filters extends Component {
       <div className={styles.filters}>
         <Title>
           <h2 className={styles.filters__name}>Уровни</h2>
-          <h2 className={styles.filters__display}>К сожалению, этот раздел доступен только с компьютера</h2>
+          <h2 className={styles.filters__display}>К сожалению, режим игры доступен только с компьютера</h2>
         </Title>
         <Router>
           <div className={styles.filters__wrapper}>
