@@ -3,8 +3,6 @@ import { Row, Col } from 'reactstrap';
 import styles from './Options.module.scss';
 import Level from '../Level/Level';
 import Button from '../UI/Button/Button';
-import Loader from "../Loader/Loader";
-import Page404 from "../../pages/Page404";
 import { connect } from 'react-redux';
 import {getMainData} from '../../actions/main';
 

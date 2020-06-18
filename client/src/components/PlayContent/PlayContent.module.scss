@@ -8,6 +8,33 @@
   }
 }
 
+.content__display {
+  text-transform: none;
+  color: $yellow;
+  font-size: 40px;
+  line-height: 45px;
+  display: none;
+
+  @media (max-width: $game-width) {
+    display: block;
+    padding-top: 65px;
+    padding-bottom: 65px;
+    padding-left: 250px;
+    padding-right: 250px;
+  }
+
+  @media (max-width: $desktop-width) {
+    padding-left: 150px;
+    padding-right: 150px;
+    font-size: 27px;
+  }
+
+  @media (max-width: $tablet-width) {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+}
+
 .title {
   text-align: left;
   color: $yellow;

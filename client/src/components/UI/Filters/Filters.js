@@ -35,7 +35,8 @@ export default class Filters extends Component {
               className={styles.filters__link}
               activeClassName={styles.filters__link_active}
               >
-              Сюжетные</NavLink>
+              Тематические
+              </NavLink>
             <Redirect to='/games/all/'></Redirect>    
           </div>
           <Switch>

@@ -39,8 +39,22 @@
 
   @media (max-width: $game-width) {
     display: block;
-    padding-top: 50px;
-    padding-bottom: 50px;
+    width: 100%;
+    padding-top: 65px;
+    padding-bottom: 65px;
+    padding-left: 180px;
+    padding-right: 180px;
+  }
+
+  @media (max-width: $desktop-width) {
+    padding-left: 100px;
+    padding-right: 100px;
+    font-size: 27px;
+  }
+
+  @media (max-width: $tablet-width) {
+    padding-left: 75px;
+    padding-right: 75px;
   }
 }
 
