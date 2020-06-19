@@ -3,9 +3,6 @@ import {Link} from 'react-router-dom';
 import styles from './Button.module.scss';
 
 export default class Button extends Component {
-    constructor(props){
-        super(props);
-    }
 
 
     render() {

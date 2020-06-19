@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import Title from '../UI/Title/Title';
-import Button from '../UI/Button/Button';
 import Level from '../Level/Level';
 import LoaderContainer from '../../containers/LoaderContainer';
 import {connect} from 'react-redux'
@@ -25,10 +24,12 @@ class Levels extends Component {
       defaultLevels = filtered.map((item) => {
         return (
           <Col key={item.id} md={6} lg={4}>
-            <Level description={item.description} 
-              title={item.title} 
-              image={item.image}
-              number={item.id}/>
+            <div className={styles.levels__item}>
+              <Level description={item.description} 
+                title={item.title} 
+                image={item.image}
+                number={item.id}/>
+            </div>
           </Col>
         )
       })
@@ -61,15 +62,6 @@ class Levels extends Component {
             </Title>
             <ul className={styles.levels__list}>
               <Row>
-                {/* <Col md={6} lg={4}>
-                  <Level />
-                </Col>
-                <Col md={6} lg={4}>
-                  <Level />
-                </Col>
-                <Col md={6} lg={4} className={styles.levels__display}>
-                  <Level />
-                </Col> */}
                 {visibleLevels}
               </Row>
             </ul>

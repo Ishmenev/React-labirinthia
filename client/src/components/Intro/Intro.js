@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
-import { Container, Row, Col } from 'reactstrap';
+import { Container } from 'reactstrap';
 import Title from '../UI/Title/Title';
 import styles from './Intro.module.scss';
 import { Link } from 'react-router-dom';
 
 export default class Intro extends Component {
-  constructor(props){
-    super(props);
-  }
 
 
   render() {

@@ -1,7 +1,5 @@
 import React, {Component} from "react";
-
 import styles from './Game.module.scss';
-import Button from "../UI/Button/Button";
 
 
 class Creator extends Component {
