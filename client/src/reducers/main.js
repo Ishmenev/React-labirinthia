@@ -1,3 +1,10 @@
+import { REQUEST_DATA_FETCHING, 
+        FETCHING_DATA_SUCCESS, 
+        FETCHING_DATA_FAIL,
+        FETCH_USER_BY_ID } 
+        from '../actions/types'
+
+
 const initialState = {
   data: {
     properties: null,
@@ -16,19 +23,19 @@ const main = (state = initialState, action) => {
   // }
 
   switch (action.type) {
-    case 'REQUEST_DATA_FETCHING':
+    case REQUEST_DATA_FETCHING:
       return {
         data: state.data,
         isFetching: true,
         errorStatus: null
       };
-    case 'FETCHING_DATA_SUCCESS':
+    case FETCHING_DATA_SUCCESS:
       return {
         data: action.payload,
         isFetching: false,
         errorStatus: null
       };
-    case 'FETCHING_DATA_FAIL':
+    case FETCHING_DATA_FAIL:
       return {
         data: {
           ...state.data
