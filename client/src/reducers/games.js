@@ -1,3 +1,8 @@
+import { REQUEST_DATA_FETCHING, 
+  FETCHING_DATA_SUCCESS, 
+  FETCHING_DATA_FAIL } 
+  from '../actions/types'
+
 const games = (state, action) => {
   if(state === undefined) {
     return {
@@ -9,17 +14,17 @@ const games = (state, action) => {
   }
 
   switch (action.type) {
-    case 'REQUEST_DATA_FETCHING':
+    case REQUEST_DATA_FETCHING:
       return {
         data: state.data,
         isFetching: true
       };
-    case 'FETCHING_DATA_SUCCESS':
+    case FETCHING_DATA_SUCCESS:
       return {
         data: action.payload,
         isFetching: false
       };
-    case 'FETCHING_DATA_FAIL':
+    case FETCHING_DATA_FAIL:
       return {
         data: {
           ...state.data
@@ -29,7 +34,6 @@ const games = (state, action) => {
     default:
       return state
   }
-};
-
+}
 
 export default games

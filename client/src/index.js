@@ -10,9 +10,9 @@ const store = createStore(reducers, {}, applyMiddleware(reduxThunk))
 
 
 ReactDOM.render(
-    <Provider store={store}>
-      <App />
-    </Provider>, 
-    document.getElementById('root'));
+  <Provider store={store}>
+    <App />
+  </Provider>, 
+  document.getElementById('root'));
 
 
