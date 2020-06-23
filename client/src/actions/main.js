@@ -20,7 +20,6 @@ export const getMainData  = () => async dispatch => {
   }
 };
 
-
 export const fetchUserById = (userId) => {
   return {
     type: FETCH_USER_BY_ID,

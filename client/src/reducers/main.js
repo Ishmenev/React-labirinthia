@@ -1,7 +1,6 @@
 import { REQUEST_DATA_FETCHING, 
         FETCHING_DATA_SUCCESS, 
-        FETCHING_DATA_FAIL,
-        FETCH_USER_BY_ID } 
+        FETCHING_DATA_FAIL } 
         from '../actions/types'
 
 

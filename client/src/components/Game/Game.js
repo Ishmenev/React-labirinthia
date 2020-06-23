@@ -179,7 +179,7 @@ class Game extends Component {
             <span>{inventory.keys}</span>
         </div>
       </React.Fragment>
-    );
+    )
   }
 }
 
@@ -188,12 +188,6 @@ const mapStateToProps = (store) => {
   return {
     game: store.game
   }
-};
+}
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    gameSaver: gameObject => dispatch(gameSaver(gameObject))
-  }
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Game))
+export default connect(mapStateToProps, {gameSaver})(withRouter(Game))

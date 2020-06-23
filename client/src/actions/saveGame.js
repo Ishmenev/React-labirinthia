@@ -1,8 +1,5 @@
-export const SAVE_GAME_PROCESS = 'SAVE_GAME_PROCESS';
+import { SAVE_GAME_PROCESS } from './types'
 
-export function gameSaver(gameObject) {
-    return {
-        type: SAVE_GAME_PROCESS,
-        payload: gameObject
-    }
+export const gameSaver = (gameObject) => async dispatch => {
+    dispatch({type: SAVE_GAME_PROCESS, payload: gameObject})
 }

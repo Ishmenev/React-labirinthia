@@ -1,4 +1,4 @@
-import {SAVE_GAME_PROCESS} from '../actions/saveGame';
+import {SAVE_GAME_PROCESS} from '../actions/types';
 
 export const initialState = {
     levelSize: {
