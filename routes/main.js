@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
-const Main = mongoose.model('main');
-const Level = mongoose.model('level');
+const Main = mongoose.model('main')
+const Level = mongoose.model('level')
 
 module.exports = app => {
   app.post('/api/main', async (req, res) => {
