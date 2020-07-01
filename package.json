@@ -7,9 +7,6 @@
     "node": "12.16.2",
     "npm": "6.9.0"
   },
-  "http": {
-    "host": "92.53.124.94"
-  },
   "scripts": {
     "start": "node index.js",
     "server": "nodemon index.js",
