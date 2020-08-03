@@ -23,6 +23,7 @@
     "reactstrap": "^8.1.1",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
+    "serve": "^11.3.2",
     "slick-carousel": "^1.8.1",
     "yargs": "^15.0.2"
   },
